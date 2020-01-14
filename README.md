@@ -9,8 +9,8 @@ Toimintoja:
 - Keskustelun aloittaminen
 - Oman keskustelun poistaminen
 - Keskusteluun vastaaminen
-- Vastauksen tai keskustelunaloituksen muokkaaminen
-- Vastauksen tai keskustelunaloituksen poistaminen
+- Vastauksen tai keskusteluna loituksen muokkaaminen
+- Vastauksen tai keskusteluna loituksen poistaminen
 
 ## Tietokantakaavio
 
