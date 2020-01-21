@@ -14,4 +14,4 @@ Joitakin toimintoja:
 
 ## Tietokantakaavio
 
-<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/dokumentaatio/keskustelufoorumiDB.png">
+<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/keskustelufoorumiDB.png">
