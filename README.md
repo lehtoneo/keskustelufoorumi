@@ -14,4 +14,4 @@ Joitakin toimintoja:
 
 ## Tietokantakaavio
 
-Tietokantakaavio löytyy osoitteesta: https://github.com/lehtoneo/keskustelufoorumi/blob/master/dokumentaatio/dbDiagram.pdf
+<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/dokumentaatio/keskustelufoorumiDB.png">
