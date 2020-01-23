@@ -2,13 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>TodoApp</title>
+    <title>Forum</title>
   </head>
+  <h1>Forum </h1> 
+  <div>
+    <p> <a href="{{ url_for('threads_index') }}">List threads</a></li> </p>
+    <p> <a href="{{ url_for('threads_form') }}">Add threads</a></li> </p>
+  </div>
 
   <body>
     {% block body %}
       <p>
-        Content.
+        Content 
       </p>
     {% endblock %}
   </body>

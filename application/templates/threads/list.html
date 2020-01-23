@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Thread</th>
+    </tr>
+    {% for thread in threads %}
+    <tr>
+      <td>{{ thread.title }}</td>
+      <td> POSTED: {{ thread.posted }}</td>
+      <td> MODIFIED: {{ thread.modified }} </td>
+      <td> 	
+        <form method="POST" action="{{ url_for('threads_edit', thread_id=thread.id) }}">
+        <input type="submit" value="Edit title!"/>
+      </form> </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
