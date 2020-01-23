@@ -1,6 +1,7 @@
 venv
 __pycache__
 .vscode
+forum.db
 
 __pycache__/
 *.py[cod]
@@ -129,4 +130,4 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
-.pyre/
+.pyre/tasks.db
