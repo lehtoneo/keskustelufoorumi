@@ -18,4 +18,4 @@ Toimintoja adminille:
 
 ## Tietokantakaavio
 
-<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/keskustelufoorumiDB.png">
+<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/tsohaprojektiDB.png">
