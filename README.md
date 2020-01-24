@@ -2,7 +2,7 @@
 
 ## Heroku
 
-https://tsoha-tyoni.herokuapp.com/
+[Heroku](https://tsoha-tyoni.herokuapp.com/)
 
 ## Kuvaus
 
