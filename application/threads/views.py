@@ -1,6 +1,6 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from application.threads.models import Thread
 from datetime import datetime
@@ -52,7 +52,7 @@ def threads_create():
 
 
     thread = Thread(form.title.data)
-
+    thread.user_id = current_user.id
     db.session().add(thread)
     db.session().commit()
 

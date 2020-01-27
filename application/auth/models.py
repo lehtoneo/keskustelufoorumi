@@ -14,6 +14,7 @@ class User(db.Model):
     password = db.Column(db.String(144), nullable=False)
     role = db.Column(db.String(10), nullable=False)
 
+    threads = db.relationship("Thread", backref='user')
     def __init__(self, name, username, password):
         self.name = name
         self.username = username
