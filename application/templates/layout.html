@@ -4,17 +4,24 @@
     <meta charset="utf-8">
     <title>Forum</title>
   </head>
-  <h1>Forum </h1> 
-  <div>
-    <p> <a href="{{ url_for('threads_index') }}">List threads</a></li> </p>
-    <p> <a href="{{ url_for('threads_form') }}">New thread</a></li> </p>
-  </div>
-
   <body>
+    {% if current_user.is_authenticated %}
+    <p>
+    Kirjautunut nimellä {{ current_user.username }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+    </p>
+    {% else %}
+    <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+    {% endif %}
+    
+    <ul>
+      <li><a href="{{ url_for('threads_index') }}">List threads</a></li>
+      <li><a href="{{ url_for('threads_form') }}">Add a thread</a></li>
+    </ul>
+    
     {% block body %}
-      <p>
-        Content 
-      </p>
+    <p>
+Content.
+    </p>
     {% endblock %}
   </body>
 </html>
