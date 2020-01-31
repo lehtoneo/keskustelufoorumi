@@ -8,7 +8,7 @@
 
 Mikäli ei halua tehdä itse sovellukseen omia tunnuksia, voi käyttää seuraavia testitunnuksia:
 
-Username: user
+Username: user  
 Password: user
 
 ## Dokumentaatio
