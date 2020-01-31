@@ -4,6 +4,13 @@
 
 [Heroku](https://tsoha-tyoni.herokuapp.com/)
 
+### Testitunnukset
+
+Mikäli ei halua tehdä itse sovellukseen omia tunnuksia, voi käyttää seuraavia testitunnuksia:
+
+Username: user  
+Password: user
+
 ## Dokumentaatio
 
 [Käyttäjätarinat](https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/kayttajatarinat.md)
@@ -23,6 +30,7 @@ Toimintoja adminille:
 - Kaikki userin toiminnot
 - Kenen tahansa keskustelun aloituksen poistaminen
 - Kenen tahansa vastauksen poistaminen
+
 
 ## Tietokantakaavio
 
