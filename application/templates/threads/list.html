@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
-{% block body %}
+{% block content %}
   <table>
     <tr>
-      <th>Thread</th>
+      <th>Threads</th>
     </tr>
     {% for thread in threads %}
     <tr>
@@ -11,8 +11,8 @@
       <td> POSTED: {{ thread.posted }}</td>
       <td> MODIFIED: {{ thread.modified }} </td>
       <td> 	
-        <form method="POST" action="{{ url_for('threads_edit', thread_id=thread.id) }}">
-        <input type="submit" value="Edit title!"/>
+        <form method="GET" action="{{ url_for('threads_openedit', thread_id=thread.id) }}">
+        <input type="submit" value="Edit this thread!"/>
       </form> </td>
     </tr>
     {% endfor %}

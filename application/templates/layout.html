@@ -3,25 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Forum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   </head>
   <body>
+  <header>
+    <div class="container">
+    <h1 class ="logo">Forum for everyone</h1>
     {% if current_user.is_authenticated %}
     <p>
-    Kirjautunut nimellä {{ current_user.username }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+    Logged in as {{ current_user.username }}. <a href="{{ url_for('auth_logout') }}">Log out</a>
     </p>
     {% else %}
-    <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+    <a href="{{ url_for('auth_login') }}">Log in</a> or <a href="{{ url_for('auth_registration') }}">Create user</a>
     {% endif %}
     
-    <ul>
-      <li><a href="{{ url_for('threads_index') }}">List threads</a></li>
+  </header>
+    <ul class="menu">
+      <li><a href="{{ url_for('threads_index') }}">Show threads</a></li>
       <li><a href="{{ url_for('threads_form') }}">Add a thread</a></li>
     </ul>
-    
-    {% block body %}
-    <p>
-Content.
-    </p>
+  </div>
+    <div class="container">
+    {% block content %}
     {% endblock %}
-  </body>
+    <div>
+    </body>
 </html>
