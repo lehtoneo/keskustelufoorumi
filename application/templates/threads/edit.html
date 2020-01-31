@@ -1,11 +1,33 @@
 {% extends "layout.html" %}
   
-{% block body %}
-<p>Previous title: {{ thread.title}} </p>
+{% block content %}
+<p>Previous title: {{ thread.title }} </p>
 <pr></pr>
-<p>New title: </p>
+
+  
+
 <form method="POST" action="{{ url_for('threads_confirmedit', thread_id=thread.id) }}">
-    <input type="text" name="title" value="{{ thread.title }}"/>
-    <input type="submit" value="Edit"/>
+    <div>
+    <ul>
+      {% for error in form.title.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    </div>
+
+
+    <p> {{ form.title.label }} {{ form.title }}</p>
+    <button type="submit" >Edit title</button>    
+
+    <div>
+      <p></p>
   </form>
+
+  <form method="POST" action="{{ url_for('threads_delete', thread_id=thread.id) }}">
+    
+    <button type="submit">Delete Thread</button>
+  </form>
+  </div>
+
+
 {% endblock %}
