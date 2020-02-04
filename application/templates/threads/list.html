@@ -7,13 +7,15 @@
     </tr>
     {% for thread in threads %}
     <tr>
-      <td>{{ thread.title }}</td>
+      <td><a href="{{ url_for('threads_open', thread_id=thread.id) }}">{{ thread.title }}</a></td>
       <td> POSTED: {{ thread.posted }}</td>
-      <td> MODIFIED: {{ thread.modified }} </td>
       <td> 	
+        {% if current_user.id == thread.user_id %}
         <form method="GET" action="{{ url_for('threads_openedit', thread_id=thread.id) }}">
         <input type="submit" value="Edit this thread!"/>
-      </form> </td>
+        </form> 
+        {% endif %}
+    </td>
     </tr>
     {% endfor %}
   </table>
