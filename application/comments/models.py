@@ -20,16 +20,16 @@ class Comment(db.Model):
 
     @staticmethod
     def connect_users_and_comments(threadid):
-        stmt = text("SELECT username, comment_text, posted FROM User"
-                     " INNER JOIN Comment ON (user_id = user.id)"
-                     " WHERE (thread_id = :threadid)")
+        stmt = text('SELECT username, comment_text, posted FROM "user"'
+                     ' INNER JOIN Comment ON (user_id = "user".id)'
+                     ' WHERE (thread_id = :threadid);')
         
         res = db.engine.execute(stmt, threadid=threadid)
 
         
         table = []
         for row in res:
-            table.append({"username":row[0], "comment_text":row[1] ,"posted":row[2]})
+            table.append({"username":row[0], "comment_text":row[1], "posted":row[2]})
 
         return table
 
