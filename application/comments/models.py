@@ -24,7 +24,7 @@ class Comment(db.Model):
 
         # this is not safe, but only way i could make it work both locally and on heroku
 
-        help = "SELECT username, comment_text, posted FROM User INNER JOIN Comment on user_id = user.id WHERE (thread_id = " + threadid + ")"
+        help = "SELECT username, comment_text, posted FROM User INNER JOIN Comment on user_id = user.id WHERE (thread_id = " + threadid + ");"
         stmt = text(help)
         
         res = db.engine.execute(stmt)
