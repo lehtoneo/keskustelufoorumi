@@ -3,7 +3,6 @@ from flask import redirect, render_template, request, url_for
 from flask_login import login_required, current_user
 
 from application.comments.models import Comment
-from application.comments.models import Comment
 from application.comments.forms import CommentForm
 from application.auth.models import User
 from application.threads.models import Thread
