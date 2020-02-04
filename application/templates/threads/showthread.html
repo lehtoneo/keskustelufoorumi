@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div> 
+    <h2> {{ thread.title }} </h2>
+    Posted by: {{ user.username }} 
+    <br>
+    {{ thread.posted }}
+    <br>
+    <br>
+    Description: {{ thread.description }}
+  </div>
+
+  
+  
+  <h3> Comments </h3>
+  {% for comment in comments %}
+  
+  <table>
+    <tr>
+      <td> <strong> {{ comment.username }} &#8226; {{ comment.posted }} </strong> </td>
+    </tr>
+    <tr>
+      <td> {{ comment.comment_text }}</td>
+    </tr>
+  
+  {% endfor %}
+  </table>
+  <form method="POST" action="{{ url_for('threads_comment', thread_id=thread.id) }}">
+    {{ form.comment.label }}
+    <br>
+    {{ form.comment }}
+    <br>
+    <button type="submit">Add comment</button>
+        </td>
+      </tr>
+  </form>
+  
+    
+{% endblock %}
