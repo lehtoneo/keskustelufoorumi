@@ -21,14 +21,11 @@ class Comment(db.Model):
     @staticmethod
     def connect_users_and_comments(threadid):
         
-        conn = db.engine.connect()
+        res = db.engine.execute(text("SELECT user.username, comment.comment_text, comment.posted FROM User" 
+            " INNER JOIN Comment on Comment.user_id = user.id"
+            " WHERE (comment.thread_id = :threadid)"), threadid=threadid)
 
-        stmt = text("SELECT user.username, comment.comment_text, comment.posted FROM User" 
-        " INNER JOIN Comment on Comment.user_id = user.id"
-        " WHERE (comment.thread_id = :threadid)")
-
-        res = conn.execute(stmt, threadid=threadid).fetchall()
-
+        
         table = []
         for row in res:
             table.append({"username":row[0], "comment_text":row[1] ,"posted":row[2]})
