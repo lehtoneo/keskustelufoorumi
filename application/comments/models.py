@@ -21,10 +21,15 @@ class Comment(db.Model):
     @staticmethod
     def connect_users_and_comments(threadid):
         
-        res = db.engine.execute(text("SELECT user.username, comment.comment_text, comment.posted FROM User" 
-            " INNER JOIN Comment on Comment.user_id = user.id"
-            " WHERE (comment.thread_id = :threadid)"), threadid=threadid)
 
+        # this is not safe, but only way i could make it work both locally and on heroku
+        
+        help = "SELECT user.username, comment.comment_text, comment.posted FROM User INNER JOIN Comment on Comment.user_id = user.id WHERE (comment.thread_id = " + threadid + ")"
+        
+        
+        res = db.engine.execute(text(help))
+
+        
         
         table = []
         for row in res:
