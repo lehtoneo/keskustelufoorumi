@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1> Here are threads you are involved </h1>
+<div>
+<h2> Threads that I have started </h2>
+<table>
+    <tr>
+      <th>Threads</th>
+    </tr>
+    {% for thread in ownthreads %}
+    <tr>
+      <td><a href="{{ url_for('threads_open', thread_id=thread.id) }}">{{ thread.title }}</a></td>
+      <td> POSTED: {{ thread.posted }}</td>
+      <td> 	
+        {% if current_user.id == thread.user_id %}
+        <form method="GET" action="{{ url_for('threads_openedit', thread_id=thread.id) }}">
+        <input type="submit" value="Edit this thread!"/>
+        </form> 
+        {% endif %}
+    </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<h2> Threads that I have commented in </h2>
+{% endblock %}
