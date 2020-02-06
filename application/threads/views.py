@@ -72,6 +72,8 @@ def threads_confirmedit(thread_id):
 @app.route("/threads/edit/<thread_id>/delete", methods=["POST"])
 @login_required
 def threads_delete(thread_id):
+    Comment.query.filter_by(thread_id=thread_id).delete()
+    db.session().commit()
     Thread.query.filter_by(id=thread_id).delete()
     db.session().commit()
     return redirect(url_for('threads_index'))
