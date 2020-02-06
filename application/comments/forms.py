@@ -1,9 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, validators
-from wtforms.widgets import TextArea
+from wtforms import StringField, validators, TextAreaField
 
 class CommentForm(FlaskForm):
-    comment = StringField("Add comment")
+    comment = TextAreaField("Add comment", [validators.Length(min=1)])
   
     class Meta:
         csrf = False
