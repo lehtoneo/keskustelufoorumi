@@ -2,7 +2,7 @@
 
 ### 1. 
 
-Kysely, joka laskee aktiivisimmat käyttäjät sen perusteella, kuinka monta keskustelua käyttäjä on aloittanut
+Kysely, joka laskee aktiivisimmat käyttäjät sen perusteella, kuinka monta keskustelua käyttäjä on aloittanut. Kyselyä käytetään, kun avataan sivu, jossa on aktiivisimmat käyttäjät.
 
 ```
   SELECT username, COUNT(user.id) AS count FROM user
