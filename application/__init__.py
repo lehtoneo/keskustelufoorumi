@@ -21,6 +21,7 @@ from application.threads import views
 from application.comments import models
 from application.auth import models
 from application.auth import views
+from application.statistics import views
 
 # Log in
 from application.auth.models import User
