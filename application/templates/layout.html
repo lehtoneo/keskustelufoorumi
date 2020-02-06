@@ -20,12 +20,18 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{ url_for('threads_form') }}">Add a new thread</a>
       </li>
+      {% if current_user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('threads_openmythreads') }}">My threads</a>
+      </li>
+      {% endif %}
+
       <div class="form-inline mt-2 mt-md-0">
       
       {% if current_user.is_authenticated %}
 	    Logged in as {{current_user.username}} &nbsp;<a href="{{ url_for('auth_logout') }}"> Logout</a>
 	    {% else %}
-	    <a href="{{ url_for('auth_login') }}">Login</a>
+	    <a href="{{ url_for('auth_login') }}">Login</a> &nbsp; or &nbsp; <a href="{{ url_for('auth_registration') }}">Sign up</a>
 	    {% endif %}
       
       </div>
