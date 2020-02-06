@@ -14,6 +14,7 @@ Password: user
 ## Dokumentaatio
 
 [Käyttäjätarinat](https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/kayttajatarinat.md)
+[Yhteenvetokyselyitä](https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/yhteenvetokyselyt.md)
 
 ## Kuvaus
 
