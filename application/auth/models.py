@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy.sql import text
 
 class User(db.Model):
 
@@ -31,3 +32,21 @@ class User(db.Model):
 
     def is_authenticated(self):
         return True
+
+    @staticmethod
+    def most_active_users_threads():
+        stmt = text('SELECT username, COUNT("user".id) AS count FROM "user"'
+                     ' INNER JOIN Thread ON ("user".id = thread.user_id)'
+                     ' GROUP BY "user".id'
+                     ' ORDER BY count DESC')
+        res = db.engine.execute(stmt)
+
+        
+        table = []
+        for row in res:
+            print(row[1])
+            rank = len(table) + 1
+            table.append({"username":row[0], "count":row[1], "rank":rank})
+        
+
+        return table

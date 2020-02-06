@@ -1,1 +1,25 @@
 {% extends "layout.html" %}
+
+{% block content %}
+    <h2> Here you can see the most active users </h2>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username </th>
+                <th scope="col">Number of started threads </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in mostactive %}
+                <tr>
+                    <th scope="row"> {{ user.rank }}</th>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.count }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
