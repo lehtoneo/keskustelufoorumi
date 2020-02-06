@@ -18,6 +18,13 @@ def threads_index():
 @login_required
 def threads_comment(thread_id):
     form = CommentForm(request.form)
+    
+    if not form.validate():
+        thread = Thread.query.get(thread_id)
+        comments = Comment.connect_users_and_comments(thread_id)
+        user = User.query.get(thread.user_id)
+        return render_template("threads/showthread.html", form = form, comments = comments, thread = thread, user = user)
+
     comment = Comment(form.comment.data)
     comment.thread_id = thread_id
     comment.user_id = current_user.id
@@ -100,6 +107,7 @@ def threads_create():
 @login_required
 def threads_openmythreads():
     user = current_user
-    threads = Thread.query.filter_by(user_id=user.id)
+    ownthreads = Thread.query.filter_by(user_id=user.id)
+    
 
-    return render_template("threads/mythreads.html", ownthreads = threads)
+    return render_template("threads/mythreads.html", ownthreads = ownthreads)
