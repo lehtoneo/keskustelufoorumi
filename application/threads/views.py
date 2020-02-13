@@ -1,18 +1,18 @@
-from application import app, db
+from application import app, db, login_required
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required, current_user
 
+from flask_login import current_user
 from application.comments.models import Comment
 from application.comments.forms import CommentForm
 from application.auth.models import User
 from application.threads.models import Thread
 from datetime import datetime
 from application.threads.forms import NewThreadForm
-from application.threads.forms import EditThreadForm
+from application.threads.forms import EditThreadTitleForm, EditThreadDescriptionForm
 
 @app.route("/threads", methods=["GET"])
 def threads_index():
-    return render_template("threads/list.html", threads = Thread.query.all())
+    return render_template("threads/list.html", threads = Thread.connect_threads_and_categories())
 
 @app.route("/threads/read/<thread_id>", methods=["POST"])
 @login_required
@@ -39,42 +39,67 @@ def threads_open(thread_id):
     comments = Comment.connect_users_and_comments(thread_id)
 
     
-    user = User.query.get(thread.user_id)
     
-    
-    return render_template("threads/showthread.html", form = CommentForm(), comments = comments, thread = thread, user = user)
+    return render_template("threads/showthread.html", form = CommentForm(), comments = comments, thread = thread, user = thread.user)
 
 @app.route("/threads/edit/<thread_id>")
 @login_required
 def threads_openedit(thread_id):
     thread = Thread.query.get(thread_id)
-    
-    return render_template("threads/edit.html", thread = thread, form = EditThreadForm())
+    if(thread.user_id != current_user.id):
+        return threads_openmythreads()
+    return render_template("threads/edit.html", thread = thread, titleform = EditThreadTitleForm(), descform = EditThreadDescriptionForm())
 
-@app.route("/threads/edit/<thread_id>/conf", methods=["POST"])
+@app.route("/threads/edit/<thread_id>/conf_title", methods=["POST"])
 @login_required
-def threads_confirmedit(thread_id):
+def threads_confirm_title_edit(thread_id):
     thread = Thread.query.get(thread_id)
-    form = EditThreadForm(request.form)
-    
-    if not form.validate():
-        return render_template("threads/edit.html", thread = thread, form = form)
+    titleform = EditThreadTitleForm(request.form)
+    print(titleform.validate())
+    if not titleform.validate():
+        
+        return render_template("threads/edit.html", thread = thread, titleform = titleform, descform = EditThreadDescriptionForm())
 
 
     
-    thread.title = form.title.data
+    thread.title = titleform.title.data
     thread.modified = datetime.now().replace(microsecond=0).replace(second=0)
     db.session().commit()
 
-    return redirect(url_for("threads_index"))
+    return threads_open(thread_id)
+
+@app.route("/threads/edit/<thread_id>/conf_description", methods=["POST"])
+@login_required
+def threads_confirm_description_edit(thread_id):
+    thread = Thread.query.get(thread_id)
+    descform = EditThreadDescriptionForm(request.form)
+    if not descform.validate():
+        
+        return render_template("threads/edit.html", thread = thread, titleform = EditThreadTitleForm, descform = descform)
+
+
+    
+    thread.description = descform.description.data
+    thread.modified = datetime.now().replace(microsecond=0).replace(second=0)
+    db.session().commit()
+
+    return threads_open(thread_id)
 
 
 @app.route("/threads/edit/<thread_id>/delete", methods=["POST"])
 @login_required
 def threads_delete(thread_id):
+    
     Comment.query.filter_by(thread_id=thread_id).delete()
     db.session().commit()
     Thread.query.filter_by(id=thread_id).delete()
+    db.session().commit()
+    return redirect(url_for('threads_index'))
+
+@app.route("/threads/deletecomment/<comment_id>", methods=["POST"])
+@login_required
+def comment_delete(comment_id):
+    Comment.query.filter_by(id=comment_id).delete()
     db.session().commit()
     return redirect(url_for('threads_index'))
 
@@ -100,6 +125,9 @@ def threads_create():
     thread = Thread(form.title.data)
     thread.user_id = current_user.id
     thread.description = form.description.data
+    thread.category_id = int(form.categories.data)
+    
+    
     db.session().add(thread)
     db.session().commit()
 
