@@ -21,9 +21,9 @@ Sovellukseen voi rekisteröityä painamalla nappia Sign up yläpalkista ja valit
 
 Painamalla yläpalkista nappia threads, avautuu lista, jossa on kaikki foorumin keskustelut listattuna.
 
-### Itse aloittamien keskustelujen etsiminen ja lukeminen
+### Omien keskustelujen etsiminen ja lukeminen
 
-Painamalla yläpalkista nappia mythreads, avautuu sivu, jossa näkyy kaikki käyttäjän itse aloittamat keskustelut.
+Painamalla yläpalkista nappia mythreads, avautuu sivu, jossa näkyy kaikki kirjautuneen käyttäjän itse aloittamat keskustelut.
 
 ### Keskustelun lukeminen
 
