@@ -19,6 +19,8 @@ Password: password
 
 [Asennusohje](https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/asennusohje.md)
 
+[Käyttöohje](https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/kaytto-ohje.md)
+
 ## Kuvaus
 
 Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. Käyttäjä voi aloittaa keskustelun, poistaa aloittamansa keskutelun ja vastata omiin tai muiden aloittamiin keskusteluihin. Kirjoituksia voi etsiä erilaisin kriteerein, kuten kategorioittain tai aloitusajan perusteella. Sovellus pitää myös tietoa siitä, ketkä käyttäjistä ovat lukeneet keskustelun. Jos keskusteluun tulee uusi viesti, keskustelu näkyy käyttäjillä lukemattomana. Sovelluksessa on kaksi eri roolia: "user" ja "admin", joilla on hieman erilaiset toiminnot.
@@ -37,7 +39,6 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 - Omien keskustelun aloituksien näyttäminen omalla sivulla
 - Yhden kategorian lisäys keskustelun aloitukselle
 - Aktiivisimpien keskustelijoiden listaus
-- Autorisointi
 
 
 
