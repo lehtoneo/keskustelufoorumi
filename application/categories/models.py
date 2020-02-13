@@ -14,6 +14,7 @@ class Category(db.Model):
         for category in init:
             table.append((str(category.id), str(category.name)))
         
+        table.append(('other', 'other'))
         return table
 
     

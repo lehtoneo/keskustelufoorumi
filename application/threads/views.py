@@ -4,10 +4,11 @@ from flask import redirect, render_template, request, url_for
 from flask_login import current_user
 from application.comments.models import Comment
 from application.comments.forms import CommentForm
-from application.auth.models import User
 from application.categories.models import Category
+from application.auth.models import User
 from application.threads.models import Thread, Thread_Category
 from datetime import datetime
+from application.categories.forms import CategoryForm
 from application.threads.forms import NewThreadForm
 from application.threads.forms import EditThreadTitleForm, EditThreadDescriptionForm
 
@@ -110,29 +111,50 @@ def comment_delete(comment_id):
 @app.route("/threads/new")
 @login_required
 def threads_form():
-    
-    return render_template("threads/new.html", form = NewThreadForm())
+    categoryform = CategoryForm()
+    return render_template("threads/new.html", threadform = NewThreadForm(), categoryform = categoryform)
 
 
 
 @app.route("/threads", methods=["POST"])
 @login_required
 def threads_create():
-    form = NewThreadForm(request.form)
+    threadform = NewThreadForm(request.form)
+    categoryform = CategoryForm(request.form)
 
-    if not form.validate():
-        return render_template("threads/new.html", form = form)
+    if not threadform.validate():
+        return render_template("threads/new.html", threadform = threadform, categoryform = categoryform)
 
-
-    thread = Thread(form.title.data)
+    thread = Thread(threadform.title.data)
     thread.user_id = current_user.id
-    thread.description = form.description.data
+    thread.description = threadform.description.data
+
+    if categoryform.categories.data == 'other':
+
+        if not categoryform.validate():
+            return render_template("threads/new.html", threadform = threadform, categoryform = categoryform)
+
+        
+
+        newcategory = Category(categoryform.othercategory.data)
+
+        db.session().add(newcategory)
+        db.session().commit()
+        db.session().add(thread)
+        db.session().commit()
+        thread_category = Thread_Category(thread.id, newcategory.id)
+        db.session().add(thread_category)
+        db.session().commit()
+
+        return redirect(url_for("threads_index"))
+
+    
     
     
     
     db.session().add(thread)
     db.session().commit()
-    thread_category = Thread_Category(thread.id, int(form.categories.data))
+    thread_category = Thread_Category(thread.id, int(categoryform.categories.data))
     db.session().add(thread_category)
     db.session().commit()
 
