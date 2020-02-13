@@ -35,6 +35,7 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 - Oman keskustelun aiheen muokkaaminen
 - Oman keskustelun kuvauksen muokkaaminen
 - Omien keskustelun aloituksien näyttäminen omalla sivulla
+- Yhden kategorian lisäys keskustelun aloitukselle
 - Aktiivisimpien keskustelijoiden listaus
 - Autorisointi
 
