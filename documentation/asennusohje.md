@@ -42,4 +42,6 @@ tai
 
 Mikäli koneellasi on pythonin versioista ainoastaan python3. 
 
+Nyt ohjelma pyörii lokaalisti osoitteessa http://localhost:5000/ 
+
 
