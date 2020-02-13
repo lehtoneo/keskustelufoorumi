@@ -21,6 +21,10 @@ Sovellukseen voi rekisteröityä painamalla nappia Sign up yläpalkista ja valit
 
 Painamalla yläpalkista nappia threads, avautuu lista, jossa on kaikki foorumin keskustelut listattuna.
 
+### Keskustelun lisääminen
+
+Kirjautunut käyttäjä voi painaa yläpalkista nappia "Add a new thread", jonka jälkeen uuden keskustelun aloittaminen tapahtuu syöttämällä avautuneisiin kenttiin niihin kuuluvat tiedot. 
+
 ### Omien keskustelujen etsiminen ja lukeminen
 
 Painamalla yläpalkista nappia mythreads, avautuu sivu, jossa näkyy kaikki kirjautuneen käyttäjän itse aloittamat keskustelut.
