@@ -6,26 +6,49 @@
 
   
 
-<form method="POST" action="{{ url_for('threads_confirmedit', thread_id=thread.id) }}">
-    <div>
-    <ul>
-      {% for error in form.title.errors %}
-      <li>{{ error }}</li>
-      {% endfor %}
-    </ul>
+<form method="POST" action="{{ url_for('threads_confirm_title_edit', thread_id=thread.id) }}">
+  <div class="form-group">
+    
+    <label> {{ titleform.title.label }}</label>
+    {{ titleform.title(class="form-control", placeholder="Enter new thread title here") }}
+    
+    <div class="invalid-feedback d-block">
+      <ul>
+        {% for error in titleform.title.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
     </div>
-
-
-    <p> {{ form.title.label }} {{ form.title }}</p>
-    <button type="submit" >Edit title</button>    
-
-    <div>
-      <p></p>
+    <button type="submit" class="btn btn-warning mb-2">Edit title</button>  
+    </div>
   </form>
 
+  <form method="POST" action="{{ url_for('threads_confirm_description_edit', thread_id=thread.id)}}">
+    <div class="form-group">
+      <p>Previous description: </p>
+      <p>{{thread.description}}</p>
+      <label> {{ descform.description.label }}</label>
+      {{ descform.description(class="form-control", placeholder="Enter new description here") }}
+      
+      <div class="invalid-feedback d-block">
+        <ul>
+          {% for error in descform.description.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <button type="submit" class="btn btn-warning mb-2">Edit description</button>  
+      </div>
+
+    </form>
+      
+
+    
+      
+  <div>
   <form method="POST" action="{{ url_for('threads_delete', thread_id=thread.id) }}">
     
-    <button type="submit">Delete Thread</button>
+    <button type="submit" class="btn btn-danger">Delete Thread</button>
   </form>
   </div>
 

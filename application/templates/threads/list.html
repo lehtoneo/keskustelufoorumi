@@ -1,21 +1,34 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  <table>
+  <div class="page header">
+    <h1>All of the threads in the forum </h1>
+    <h5>Click title to open thread!</h5>
+    <br>
+  </div>
+  
+  
+  <table class="table table-bordered table-dark">
     <tr>
-      <th>Threads</th>
+      <th>Thread title</th>
+      <th>Poster </th>
+      <th>Category</th>
+      <th>Posted</th>
     </tr>
     {% for thread in threads %}
     <tr>
       <td><a href="{{ url_for('threads_open', thread_id=thread.id) }}">{{ thread.title }}</a></td>
-      <td> POSTED: {{ thread.posted }}</td>
-      <td> 	
-        {% if current_user.id == thread.user_id %}
-        <form method="GET" action="{{ url_for('threads_openedit', thread_id=thread.id) }}">
-        <input type="submit" value="Edit this thread!"/>
-        </form> 
-        {% endif %}
+      <td> 
+        {{ thread.username }}
+      </td>
+    <td>
+      {{ thread.category }}
     </td>
+
+    <td> 
+      {{ thread.posted }}
+    </td>
+
     </tr>
     {% endfor %}
   </table>

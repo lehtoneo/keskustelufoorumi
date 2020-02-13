@@ -17,15 +17,17 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{ url_for('threads_index') }}"> Threads <span class="sr-only">(current)</span></a>
       </li>
+      
       <li class="nav-item active">
-        <a class="nav-link" href="{{ url_for('threads_form') }}">Add a new thread</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ url_for('stats_open') }}">Show most active users</a>
+        <a class="nav-link" href="{{ url_for('stats_open') }}">Show the most active users</a>
       </li>
       {% if current_user.is_authenticated %}
       <li class="nav-item active">
         <a class="nav-link" href="{{ url_for('threads_openmythreads') }}">My threads</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('threads_form') }}">Add a new thread</a>
       </li>
       {% endif %}
       <div class="form-inline mt-2 mt-md-0">

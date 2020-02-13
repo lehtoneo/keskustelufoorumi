@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  <div> 
+  <div > 
     <h2> {{ thread.title }} </h2>
     Posted by: {{ user.username }} 
     <br>
@@ -23,15 +23,29 @@
   <table>
     <tr>
       <td> <strong> {{ comment.username }} &#8226; {{ comment.posted }} </strong> </td>
+      
+      
     </tr>
     <tr>
-      <td> {{ comment.comment_text }}</td>
+      <td> {{ comment.comment_text }}
+        {% if comment.user_id == current_user.id %}
+        <form method="POST" action="{{ url_for('comment_delete', comment_id=comment.id) }}">
+          <div class="form-group">
+            <br>
+            <button type="submit" class="btn btn-danger">Delete comment</button>
+          </div>
+        </form>
+      {% endif %}
+      </td>
+     
+      
     </tr>
     </table>
   
   {% endfor %}
 </div>
 <br>
+{% if current_user.is_authenticated %}
   <form method="POST" action="{{ url_for('threads_comment', thread_id=thread.id) }}">
 
       <div class="form group">
@@ -46,6 +60,7 @@
       <br>
       <button type="submit" class="btn btn-primary mb-2">Comment!</button>
   </form>
+  {%endif%}
   
     
 {% endblock %}

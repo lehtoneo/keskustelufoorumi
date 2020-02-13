@@ -4,8 +4,7 @@
 {{ error }}
 <form method="POST" action="{{ url_for('auth_login') }}">
       <div class="form-group">
-            <label >{{ form.username.label }}</label>
-            {{ form.username(class="form-control", placeholder="Enter username")}}
+            <label >{{ form.username.label }} {{ form.username(class="form-control", placeholder="Enter username")}}</label>
             
             <ul>
               {% for error in form.username.errors %}
@@ -14,8 +13,8 @@
             </ul>
           </div>
           <div class="form group">
-            <label >{{ form.password.label }}</label>
-            {{ form.password(class="form-control", placeholder="Password")}}
+            <label >{{ form.password.label }} {{ form.password(class="form-control", placeholder="Password")}}</label>
+            
           </div>
           <br>
           <button type="submit" class="btn btn-primary mb-2">Log in</button>
