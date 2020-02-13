@@ -13,9 +13,10 @@ class User(db.Model):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
-    role = db.Column(db.String(10), nullable=False)
+    role = db.Column(db.String(5), nullable=False)
 
-    threads = db.relationship("Thread", backref='user')
+    threads = db.relationship("Thread", backref="user")
+
     def __init__(self, name, username, password):
         self.name = name
         self.username = username
@@ -32,6 +33,11 @@ class User(db.Model):
 
     def is_authenticated(self):
         return True
+
+    def roles(self):
+        if(self.role == "ADMIN"):
+            return ["ADMIN"]
+        return ["USER"]
 
     @staticmethod
     def most_active_users_threads():
