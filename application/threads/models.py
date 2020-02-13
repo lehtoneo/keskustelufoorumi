@@ -23,7 +23,7 @@ class Thread(db.Model):
     def connect_threads_and_categories():
         stmt = text('SELECT thread.title AS title, thread."user_id" AS "user_id", thread.posted AS posted, category.name AS category, "user".username AS username, thread.id AS id FROM Thread'
                      ' INNER JOIN Category ON (thread.category_id = category.id)'
-                     ' INNER JOIN User On (thread.user_id = user.id);')
+                     ' INNER JOIN "User" On (thread.user_id = "user".id);')
         
         res = db.engine.execute(stmt)
         
