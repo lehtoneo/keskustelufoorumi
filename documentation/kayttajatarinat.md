@@ -9,7 +9,7 @@
 - Käyttäjänä haluan pystyä poistamaan oman vastauksen
 - Käyttäjänä haluan nähdä ketkä ovat lukeneet keskusteluita
 - Käyttäjänä haluan pystyä etsimään keskusteluita kategorioittain
-- Käyttäjänä haluan nähdä ketkä on sovelluksen aktiivisimpia käyttäjiä
+- Käyttäjänä haluan nähdä ketkä ovat sovelluksen aktiivisimpia käyttäjiä
 - Käyttäjänä haluan löytää helposti omat keskustelun avaukseni
 
 ## Admin
