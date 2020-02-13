@@ -6,7 +6,6 @@ Ohjeet olettavat, että konella, johon asennat ohjelman ainakin seuraavat ohjelm
 
 
 - [python](https://www.python.org/download) (sekä pythonin kirjastot pip ja venv)
-- Git
 
 ## Asennus
 
