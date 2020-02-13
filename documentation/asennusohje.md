@@ -6,15 +6,26 @@ Ohjeet olettavat, että konella, johon asennat ohjelman ainakin seuraavat ohjelm
 
 
 - [python](https://www.python.org/download) (sekä pythonin kirjastot pip ja venv)
+- Git
 
 ## Asennus
 
-### 1. Lataaminen ja purkaminen
+### 1. Lataaminen
+
+#### Lataus vaihtoehto 1.
 
 Mene projektin [juureen](https://github.com/lehtoneo/keskustelufoorumi), paina vihreää nappia clone or download. Jonka jälkeen pitäisi avautua valikko, jossa on mahdollisuus painaa nappia download zip.
 
 
 Paina download zip. Latauksen jälkeen pura tiedosto haluaamaasi paikkaan.
+
+#### Lataus vaihtoehto 2.
+
+Tarvitset koneellesi [gitin](https://git-scm.com/downloads/) seurataksesi tätä vaihtoehtoa.
+
+Luo kansio johon haluat tuoda projektin ja navigoi kyseiseen kansioon. Suorita komento 
+
+```git clone https://github.com/lehtoneo/keskustelufoorumi.git```
 
 ### 2. Virtuaaliympäristön luominen ja käynnistäminen
 
