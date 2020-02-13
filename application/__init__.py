@@ -15,30 +15,79 @@ else:
 
 db = SQLAlchemy(app)
 
-from application import views
-from application.threads import models
-from application.threads import views
-from application.comments import models
-from application.auth import models
-from application.auth import views
-from application.statistics import views
+
 
 # Log in
-from application.auth.models import User
 from os import urandom
 app.config["SECRET_KEY"] = urandom(32)
 
 
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 login_manager = LoginManager()
 login_manager.init_app(app)
 
 login_manager.login_view = "auth_login"
 login_manager.login_message = "Please login to use this functionality."
 
+
+from functools import wraps
+
+def login_required(_func=None, *, role="ANY"):
+    def wrapper(func):
+        @wraps(func)
+        def decorated_view(*args, **kwargs):
+            if not (current_user and current_user.is_authenticated):
+                return login_manager.unauthorized()
+
+            acceptable_roles = set(("ANY", *current_user.roles()))
+
+            if role not in acceptable_roles:
+                return login_manager.unauthorized()
+
+            return func(*args, **kwargs)
+        return decorated_view
+    return wrapper if _func is None else wrapper(_func)
+
+from application import views
+
+from application.threads import models
+from application.threads import views
+from application.comments import models
+
+from application.categories import models
+
+from application.auth import models
+from application.auth import views
+
+from application.statistics import views
+
+from application.auth.models import User
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
 
+from sqlalchemy.sql import text
 # Create db tables if they don't exist
+def init_categories():
+    
+    stmt = text('SELECT * FROM Category;')
+        
+    res = db.engine.execute(stmt)
+    
+    if(res.fetchone() != None):
+        return
+    
+    stmt = text("INSERT INTO Category (id, name) VALUES (1, 'Sports');")
+    db.engine.execute(stmt)
+
+    stmt = text("INSERT INTO Category (id, name) VALUES (2, 'Gaming');")
+    db.engine.execute(stmt)
+    
+    stmt = text("INSERT INTO Category (id, name) VALUES (3, 'Programming');")
+    db.engine.execute(stmt)
+
+
+
+
 db.create_all()
+init_categories()
