@@ -5,6 +5,7 @@ from flask_login import current_user
 from application.comments.models import Comment
 from application.comments.forms import CommentForm
 from application.auth.models import User
+from application.categories.models import Category
 from application.threads.models import Thread, Thread_Category
 from datetime import datetime
 from application.threads.forms import NewThreadForm
@@ -12,6 +13,7 @@ from application.threads.forms import EditThreadTitleForm, EditThreadDescription
 
 @app.route("/threads", methods=["GET"])
 def threads_index():
+    
     return render_template("threads/list.html", threads = Thread.connect_threads_and_categories())
 
 @app.route("/threads/read/<thread_id>", methods=["POST"])

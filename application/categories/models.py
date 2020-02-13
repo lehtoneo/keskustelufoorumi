@@ -7,5 +7,13 @@ class Category(db.Model):
     def __init__(self, name):
         self.name = name
 
+    @staticmethod
+    def findChoices():
+        init = Category.query.all()
+        table = []
+        for category in init:
+            table.append((str(category.id), str(category.name)))
+        
+        return table
 
     
