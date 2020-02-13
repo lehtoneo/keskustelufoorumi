@@ -5,7 +5,7 @@ from flask_login import current_user
 from application.comments.models import Comment
 from application.comments.forms import CommentForm
 from application.auth.models import User
-from application.threads.models import Thread
+from application.threads.models import Thread, Thread_Category
 from datetime import datetime
 from application.threads.forms import NewThreadForm
 from application.threads.forms import EditThreadTitleForm, EditThreadDescriptionForm
@@ -125,10 +125,13 @@ def threads_create():
     thread = Thread(form.title.data)
     thread.user_id = current_user.id
     thread.description = form.description.data
-    thread.category_id = int(form.categories.data)
+    
     
     
     db.session().add(thread)
+    db.session().commit()
+    thread_category = Thread_Category(thread.id, int(form.categories.data))
+    db.session().add(thread_category)
     db.session().commit()
 
     return redirect(url_for("threads_index"))
