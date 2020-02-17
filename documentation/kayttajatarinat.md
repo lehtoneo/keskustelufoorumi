@@ -23,6 +23,11 @@ Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin
 
 
 #### Pystyy muokkaamaan omaa keskustelun aloitusta
+
+SQL-kysely: 
+
+```Update Thread SET Title ='uusi title', modified = 'tämän hetkinen aika' WHERE id = muokattavan keskustelun id```
+
 #### Pystyy muokkaamaan omaa kommenttia
 #### Pystyy poistamaan oman keskustelun aloituksen
 #### Pystyy poistamaan oman vastauksen
