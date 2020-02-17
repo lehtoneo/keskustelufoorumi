@@ -18,9 +18,11 @@ SQL-kysely:
 
 ```INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) VALUES (?, 'kommentin teksti tähän', ?, ?, sen keskustelun id johon vastataan tähän, kirjautuneen käyttäjän id tähän)``` 
 
+Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään
 
 
-- Pystyy muokkaamaan omaa keskustelun aloitusta
+
+#### Pystyy muokkaamaan omaa keskustelun aloitusta
 - Pystyy muokkaamaan omaa kommenttia
 - Pystyy poistamaan oman keskustelun aloituksen
 - Pystyy poistamaan oman vastauksen
