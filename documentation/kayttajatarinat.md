@@ -15,9 +15,9 @@ Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin
 
 SQL-kysely:
 
-INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) VALUES (?, 'kommentin teksti tähän', ?, ?, sen keskustelun id johon vastataan tähän, kirjautuneen käyttäjän id tähän)
+```INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) VALUES (?, 'kommentin teksti tähän', ?, ?, sen keskustelun id johon vastataan tähän, kirjautuneen käyttäjän id tähän)``` 
 
-``` INSERT INTO Comment (
+
 
 - Pystyy muokkaamaan omaa keskustelun aloitusta
 - Pystyy muokkaamaan omaa kommenttia
