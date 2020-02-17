@@ -1,7 +1,6 @@
 # Käyttäjätarinat
 
 ## Normaali käyttäjä: 
-- 
 - Pystyy aloittamaan uuden keskustelun
 - Pystyy vastaamaan keskusteluihin
 - Pystyy muokkaamaan omaa keskustelun aloitusta
