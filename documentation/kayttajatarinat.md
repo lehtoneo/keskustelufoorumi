@@ -1,7 +1,8 @@
 # Käyttäjätarinat
 
 ## Normaali käyttäjä: 
-- Pystyy aloittamaan uuden keskustelun
+
+#### Pystyy aloittamaan uuden keskustelun
 
 SQL-kysely:
 
@@ -11,7 +12,7 @@ Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin
 
 
 
-- Pystyy vastaamaan keskusteluihin
+#### Pystyy vastaamaan keskusteluihin
 
 SQL-kysely:
 
