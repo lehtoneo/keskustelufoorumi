@@ -12,11 +12,11 @@ Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin
 
 
 
-#### Pystyy vastaamaan keskusteluihin
+#### Pystyy kommentoimaan keskusteluihin
 
 SQL-kysely:
 
-```INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) VALUES (?, 'kommentin_teksti', ?, ?, sen_keskustelun_id_johon_vastataan, kirjautuneen_käyttäjän_id)``` 
+```INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) VALUES (?, 'kommentin_teksti', ?, ?, sen_keskustelun_id_johon_kommentoidaan, kirjautuneen_käyttäjän_id)``` 
 
 Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään
 
@@ -28,20 +28,38 @@ SQL-kysely:
 
 ```Update Thread SET Title ='uusi_title', modified = 'tämän_hetkinen_aika' WHERE id = muokattavan_keskustelun_id```
 
-#### Pystyy muokkaamaan omaa kommenttia
+#### Pystyy muokkaamaan omaa 
 
 #### Pystyy poistamaan oman keskustelun aloituksen
 
-SQL-kysely
+SQL-kysely:
 
 ```DELETE FROM Thread WHERE id = poistettavan_keskustelun_id```
 
 
-#### Pystyy poistamaan oman vastauksen
+#### Pystyy poistamaan oman kommentin
+
+SQL-kysely: 
+
+```DELETE FROM Comment WHERE id = poistettavan_kommentin_id```
+
 #### Pystyy näkemään, ketkä ovat lukeneet keskusteluita
+
+
 #### Pystyy etsimään keskusteluita kategorioittain
+
+
 #### Pystyy näkemään ketkä ovat sovelluksen aktiivisimpia käyttäjiä
+
+SQL-kysely:
+
+```SELECT username, COUNT("user".id) AS count FROM "user"'
+                     ' INNER JOIN Thread ON ("user".id = thread.user_id)'
+                     ' GROUP BY "user".id'
+                     ' ORDER BY count DES```
+
 #### Pystyy löytämään helposti omat keskustelun avauksensa
+#### Pystyy lukemaan keskusteluita
 
 ## Admin
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
