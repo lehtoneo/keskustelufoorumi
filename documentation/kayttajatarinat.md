@@ -53,10 +53,7 @@ SQL-kysely:
 
 SQL-kysely:
 
-```SELECT username, COUNT("user".id) AS count FROM "user"'
-                     ' INNER JOIN Thread ON ("user".id = thread.user_id)'
-                     ' GROUP BY "user".id'
-                     ' ORDER BY count DES```
+```SELECT username, COUNT("user".id) AS count FROM "user" INNER JOIN Thread ON ("user".id = thread.user_id)' GROUP BY "user".id' ORDER BY count DESC```
 
 #### Pystyy löytämään helposti omat keskustelun avauksensa
 #### Pystyy lukemaan keskusteluita
