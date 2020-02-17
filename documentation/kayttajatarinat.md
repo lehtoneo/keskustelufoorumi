@@ -2,6 +2,9 @@
 
 ## Normaali käyttäjä: 
 - Pystyy aloittamaan uuden keskustelun
+
+
+
 - Pystyy vastaamaan keskusteluihin
 - Pystyy muokkaamaan omaa keskustelun aloitusta
 - Pystyy muokkaamaan omaa kommenttia
@@ -13,7 +16,7 @@
 - Pystyy löytämään helposti omat keskustelun avaukseni
 
 ## Admin
-- Adminina haluan tehdä kaiken mitä normaali käyttäjä pystyy tekemään
-- Adminina haluan pystyä poistamaan minkä tahansa keskustelun aloituksen
-- Adminina haluan pystyä poistamaan minkä tahansa kommentin
+- Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
+- Pystyy poistamaan minkä tahansa keskustelun aloituksen
+- Pystyy poistamaan minkä tahansa kommentin
 
