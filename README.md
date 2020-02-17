@@ -45,4 +45,4 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 ## Tietokantakaavio
 
 
-<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/dbPicture.png">
+<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/dbPic.png">

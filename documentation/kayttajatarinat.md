@@ -1,19 +1,38 @@
 # Käyttäjätarinat
 
-## User
-- Käyttäjänä haluan pystyä aloittamaan uuden keskustelun
-- Käyttäjänä haluan pystyä vastaamaan keskusteluihin
-- Käyttäjänä haluan pystyä muokkaamaan omaa keskustelun aloitusta
-- Käyttäjänä haluan pystyä muokkaamaan omaa kommenttia
-- Käyttäjänä haluan pystyä poistamaan oman keskustelun
-- Käyttäjänä haluan pystyä poistamaan oman vastauksen
-- Käyttäjänä haluan nähdä ketkä ovat lukeneet keskusteluita
-- Käyttäjänä haluan pystyä etsimään keskusteluita kategorioittain
-- Käyttäjänä haluan nähdä ketkä ovat sovelluksen aktiivisimpia käyttäjiä
-- Käyttäjänä haluan löytää helposti omat keskustelun avaukseni
+## Normaali käyttäjä: 
+
+#### Pystyy aloittamaan uuden keskustelun
+
+SQL-kysely:
+
+```INSERT INTO Thread (id, title, description, posted, modified, user_id) VALUES (?, 'title tähän', 'kuvaus tähän', ?, ?, kirjautuneen käyttäjän id tähän)```
+
+Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään.
+
+
+
+#### Pystyy vastaamaan keskusteluihin
+
+SQL-kysely:
+
+```INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) VALUES (?, 'kommentin teksti tähän', ?, ?, sen keskustelun id johon vastataan tähän, kirjautuneen käyttäjän id tähän)``` 
+
+Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään
+
+
+
+#### Pystyy muokkaamaan omaa keskustelun aloitusta
+#### Pystyy muokkaamaan omaa kommenttia
+#### Pystyy poistamaan oman keskustelun aloituksen
+#### Pystyy poistamaan oman vastauksen
+#### Pystyy näkemään, ketkä ovat lukeneet keskusteluita
+#### Pystyy etsimään keskusteluita kategorioittain
+#### Pystyy näkemään ketkä ovat sovelluksen aktiivisimpia käyttäjiä
+#### Pystyy löytämään helposti omat keskustelun avauksensa
 
 ## Admin
-- Adminina haluan tehdä kaiken mitä normaali käyttäjä pystyy tekemään
-- Adminina haluan pystyä poistamaan minkä tahansa keskustelun aloituksen
-- Adminina haluan pystyä poistamaan minkä tahansa kommentin
+#### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
+#### Pystyy poistamaan minkä tahansa keskustelun aloituksen
+#### Pystyy poistamaan minkä tahansa kommentin
 
