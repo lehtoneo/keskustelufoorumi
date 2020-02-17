@@ -21,7 +21,7 @@ SQL-kysely:
 
 ```SQL
 INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) 
-VALUES (?, 'kommentin_teksti', ?, ?, sen_keskustelun_id_johon_kommentoidaan, kirjautuneen_käyttäjän_id)
+VALUES (?, 'kommentin_teksti', ?, ?, sen_keskustelun_id_johon_kommentoidaan, kirjautuneen_käyttäjän_id);
 ``` 
 
 Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään
@@ -34,7 +34,7 @@ SQL-kysely:
 
 ```SQL
 Update Thread SET Title ='uusi_title', modified = 'tämän_hetkinen_aika' 
-WHERE id = muokattavan_keskustelun_id
+WHERE id = muokattavan_keskustelun_id;
 ```
 
 #### Pystyy muokkaamaan omaa 
@@ -44,7 +44,7 @@ WHERE id = muokattavan_keskustelun_id
 SQL-kysely:
 
 ```SQL 
-DELETE FROM Thread WHERE id = poistettavan_keskustelun_id
+DELETE FROM Thread WHERE id = poistettavan_keskustelun_id;
 ```
 
 
@@ -53,7 +53,7 @@ DELETE FROM Thread WHERE id = poistettavan_keskustelun_id
 SQL-kysely: 
 
 ```SQL 
-DELETE FROM Comment WHERE id = poistettavan_kommentin_id
+DELETE FROM Comment WHERE id = poistettavan_kommentin_id;
 ```
 
 #### Pystyy näkemään, ketkä ovat lukeneet keskusteluita
@@ -70,10 +70,17 @@ SQL-kysely:
 SELECT username, COUNT(user.id) AS count FROM user 
 INNER JOIN Thread ON (user.id = thread.user_id)
 GROUP BY user.id 
-ORDER BY count DESC
+ORDER BY count DESC;
 ```
 
 #### Pystyy löytämään helposti omat keskustelun avauksensa
+
+SQL-kysely:
+
+```SQL
+SELECT * FROM Thread
+WHERE user_id = kirjautuneen_käyttäjän_id;
+```
 #### Pystyy lukemaan keskusteluita
 
 ## Admin
