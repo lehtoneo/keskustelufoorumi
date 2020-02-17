@@ -2,7 +2,8 @@
 
 ## Normaali käyttäjä: 
 - Pystyy aloittamaan uuden keskustelun
-SQL Kysely:
+
+SQL-kysely:
 
 ```INSERT INTO Thread (id, title, description, posted, modified, user_id) VALUES (?, 'title tähän', 'kuvaus tähän', ?, ?, kirjautuneen käyttäjän id tähän)```
 
