@@ -14,8 +14,17 @@ from application.threads.forms import EditThreadTitleForm, EditThreadDescription
 
 @app.route("/threads", methods=["GET"])
 def threads_index():
-    
-    return render_template("threads/list.html", threads = Thread.connect_threads_and_categories())
+    categoryform = CategoryForm(None)
+    return render_template("threads/list.html", threads = Thread.connect_threads_and_categories(None), categoryform = categoryform)
+
+@app.route("/threads/category", methods=["POST"])
+def threads_with_category():
+    categoryform = CategoryForm(request.form)
+    return open_threads_with_category(categoryform.categories.data)
+
+@app.route("/threads/<category_id>", methods=["GET"])
+def open_threads_with_category(category_id):
+    return render_template("threads/list.html", threads = Thread.connect_threads_and_categories(category_id), categoryform = CategoryForm(None))
 
 @app.route("/threads/read/<thread_id>", methods=["POST"])
 @login_required
@@ -66,7 +75,7 @@ def threads_confirm_title_edit(thread_id):
 
     
     thread.title = titleform.title.data
-    thread.modified = datetime.now().replace(microsecond=0).replace(second=0)
+    thread.modified = datetime.now().replace(microsecond=0)
     db.session().commit()
 
     return threads_open(thread_id)
@@ -111,7 +120,7 @@ def comment_delete(comment_id):
 @app.route("/threads/new")
 @login_required
 def threads_form():
-    categoryform = CategoryForm()
+    categoryform = CategoryForm(None)
     return render_template("threads/new.html", threadform = NewThreadForm(), categoryform = categoryform)
 
 
@@ -122,13 +131,14 @@ def threads_create():
     threadform = NewThreadForm(request.form)
     categoryform = CategoryForm(request.form)
 
+    
+
     if not threadform.validate():
         return render_template("threads/new.html", threadform = threadform, categoryform = categoryform)
 
     thread = Thread(threadform.title.data)
     thread.user_id = current_user.id
     thread.description = threadform.description.data
-
     if categoryform.categories.data == 'other':
 
         if not categoryform.validate():

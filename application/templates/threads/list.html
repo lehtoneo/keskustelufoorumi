@@ -3,11 +3,21 @@
 {% block content %}
   <div class="page header">
     <h1>All of the threads in the forum </h1>
-    <h5>Click title to open thread!</h5>
+    
     <br>
+
+  </div>
+  <form method="POST" action="{{ url_for('threads_with_category') }}">
+  <div class="form-group">
+    <label> Select category</label>
+    {{ categoryform.categories(class="custom-select") }}
+    
+    <button type="submit" class="btn btn-primary mb-2">Show</button>
   </div>
   
-  
+    
+  </form>
+  <h5>Click title to open thread!</h5>
   <table class="table table-bordered table-dark">
     <tr>
       <th>Thread title</th>

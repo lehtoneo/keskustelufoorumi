@@ -19,11 +19,20 @@ class Thread(db.Model):
         self.title = title
 
     @staticmethod
-    def connect_threads_and_categories():
-        stmt = text('SELECT thread.title AS title, thread."user_id" AS "user_id", thread.posted AS posted, category.name AS category, "user".username AS username, thread.id AS id FROM Thread'
-                     ' INNER JOIN Thread__Category ON (thread.id = thread__category.thread_id)'
-                     ' INNER JOIN Category ON (category.id = thread__category.category_id)'
-                     ' INNER JOIN "user" On (thread."user_id" = "user".id);')
+    def connect_threads_and_categories(category_id):
+        if category_id is None:
+            stmt = text('SELECT thread.title AS title, thread."user_id" AS "user_id", thread.posted AS posted, category.name AS category, "user".username AS username, thread.id AS id FROM Thread'
+                        ' INNER JOIN Thread__Category ON (thread.id = thread__category.thread_id)'
+                        ' INNER JOIN Category ON (category.id = thread__category.category_id)'
+                        ' INNER JOIN "user" On (thread."user_id" = "user".id);')
+        else:
+            stmt = text('SELECT thread.title AS title, thread."user_id" AS "user_id", thread.posted AS posted, category.name AS category, "user".username AS username, thread.id AS id FROM Thread'
+                        ' INNER JOIN Thread__Category ON (thread.id = thread__category.thread_id)'
+                        ' INNER JOIN Category ON (category.id = thread__category.category_id)'
+                        ' INNER JOIN "user" On (thread."user_id" = "user".id)'
+                        ' WHERE (category.id = :idcategory);').params(idcategory=category_id)
+
+
         
         res = db.engine.execute(stmt)
         
@@ -33,6 +42,9 @@ class Thread(db.Model):
             table.append({"title":row[0], "user_id":row[1], "posted":row[2], "category":row[3], "username":row[4], "id":row[5]})
         
         return table
+
+
+
 
 class Thread_Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)

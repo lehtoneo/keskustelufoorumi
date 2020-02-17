@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, validators, TextAreaField, SelectField
-from application.categories.models import Category
+from wtforms import StringField, validators, TextAreaField
 
 
 class NewThreadForm(FlaskForm):
