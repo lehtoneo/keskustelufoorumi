@@ -6,7 +6,9 @@
 
 SQL-kysely:
 
-```SQL INSERT INTO Thread (id, title, description, posted, modified, user_id) VALUES (?, 'title_tähän', 'kuvaus_tähän', ?, ?, kirjautuneen_käyttäjän_id)```
+```SQL 
+INSERT INTO Thread (id, title, description, posted, modified, user_id) VALUES (?, 'title_tähän', 'kuvaus_tähän', ?, ?, kirjautuneen_käyttäjän_id)
+```
 
 Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään.
 
