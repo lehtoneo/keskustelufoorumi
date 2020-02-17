@@ -13,7 +13,7 @@
 - Pystyy näkemään, ketkä ovat lukeneet keskusteluita
 - Pystyy etsimään keskusteluita kategorioittain
 - Pystyy näkemään ketkä ovat sovelluksen aktiivisimpia käyttäjiä
-- Pystyy löytämään helposti omat keskustelun avaukseni
+- Pystyy löytämään helposti omat keskustelun avauksensa
 
 ## Admin
 - Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
