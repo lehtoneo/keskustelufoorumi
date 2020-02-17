@@ -1,16 +1,17 @@
 # Käyttäjätarinat
 
-## User
-- Käyttäjänä haluan pystyä aloittamaan uuden keskustelun
-- Käyttäjänä haluan pystyä vastaamaan keskusteluihin
-- Käyttäjänä haluan pystyä muokkaamaan omaa keskustelun aloitusta
-- Käyttäjänä haluan pystyä muokkaamaan omaa kommenttia
-- Käyttäjänä haluan pystyä poistamaan oman keskustelun
-- Käyttäjänä haluan pystyä poistamaan oman vastauksen
-- Käyttäjänä haluan nähdä ketkä ovat lukeneet keskusteluita
-- Käyttäjänä haluan pystyä etsimään keskusteluita kategorioittain
-- Käyttäjänä haluan nähdä ketkä ovat sovelluksen aktiivisimpia käyttäjiä
-- Käyttäjänä haluan löytää helposti omat keskustelun avaukseni
+## Normaali käyttäjä: 
+- 
+- Pystyy aloittamaan uuden keskustelun
+- Pystyy vastaamaan keskusteluihin
+- Pystyy muokkaamaan omaa keskustelun aloitusta
+- Pystyy muokkaamaan omaa kommenttia
+- Pystyy poistamaan oman keskustelun aloituksen
+- Pystyy poistamaan oman vastauksen
+- Pystyy näkemään, ketkä ovat lukeneet keskusteluita
+- Pystyy etsimään keskusteluita kategorioittain
+- Pystyy näkemään ketkä ovat sovelluksen aktiivisimpia käyttäjiä
+- Pystyy löytämään helposti omat keskustelun avaukseni
 
 ## Admin
 - Adminina haluan tehdä kaiken mitä normaali käyttäjä pystyy tekemään
