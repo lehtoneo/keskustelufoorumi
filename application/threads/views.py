@@ -103,10 +103,10 @@ def threads_confirm_description_edit(thread_id):
 def threads_delete(thread_id):
     
     Comment.query.filter_by(thread_id=thread_id).delete()
-    db.session().commit()
+    Thread_Category.query.filter_by(thread_id=thread_id).delete()
     Thread.query.filter_by(id=thread_id).delete()
     db.session().commit()
-    return redirect(url_for('threads_index'))
+    return threads_openmythreads()
 
 @app.route("/threads/deletecomment/<comment_id>", methods=["POST"])
 @login_required
