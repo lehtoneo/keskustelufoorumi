@@ -81,7 +81,9 @@ Lisätään paikalliseen versionhallintaan herokusta
 Lähetetään projekti herokuun:
 
 ```git add .```
+
 ```git commit -m"init"```
+
 ```git push heroku master```
 
 Projekti löytyy nyt osoitteesta  https://oman_projektin_nimi.herokuapp.com/
