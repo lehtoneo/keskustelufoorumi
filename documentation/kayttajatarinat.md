@@ -37,7 +37,7 @@ Update Thread SET Title ='uusi_title', modified = 'tämän_hetkinen_aika'
 WHERE id = muokattavan_keskustelun_id;
 ```
 
-#### Pystyy muokkaamaan omaa 
+#### Pystyy muokkaamaan omaa kommenttia
 
 #### Pystyy poistamaan oman keskustelun aloituksen
 
