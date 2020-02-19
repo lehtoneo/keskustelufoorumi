@@ -46,7 +46,7 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 
 ## TOTEUTUNUT Tietokantakaavio
 
-<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/tsohadbtoteutunut.png">
+<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/tsohaDBtot.png">
           
 ## TULEVAISUUDEN Tietokantakaavio
 
