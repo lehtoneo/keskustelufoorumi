@@ -21,9 +21,11 @@ Password: password
 
 [Käyttöohje](https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/kaytto-ohje.md)
 
+[Create Table-lauseet](https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/createtablelauseet.md)
+
 ## Kuvaus
 
-Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. Käyttäjä voi aloittaa keskustelun, poistaa aloittamansa keskutelun ja vastata omiin tai muiden aloittamiin keskusteluihin. Kirjoituksia voi etsiä erilaisin kriteerein, kuten kategorioittain tai aloitusajan perusteella. Sovellus pitää myös tietoa siitä, ketkä käyttäjistä ovat lukeneet keskustelun. Jos keskusteluun tulee uusi viesti, keskustelu näkyy käyttäjillä lukemattomana. Sovelluksessa on kaksi eri roolia: "user" ja "admin", joilla on hieman erilaiset toiminnot.
+Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. Käyttäjä voi aloittaa keskustelun, poistaa aloittamansa keskutelun ja vastata omiin tai muiden aloittamiin keskusteluihin. Keskusteluja voi etsiä erilaisin kriteerein, kuten kategorioittain tai aloitusajan perusteella. Sovelluksessa on kaksi eri roolia: "user" ja "admin", joilla on hieman erilaiset toiminnot.
 
 ### Toteutetut toiminnallisuudet
 
@@ -32,13 +34,14 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 - Keskustelun aloittaminen
 - Keskusteluun vastaaminen
 - Keskusteluiden listaaminen
+- Keskustelun etsiminen kategorioittain
 - Kommenttien katselu
 - Oman vastauksen ja keskustelun aloituksen poistaminen
 - Oman keskustelun aiheen muokkaaminen
 - Oman keskustelun kuvauksen muokkaaminen
 - Omien keskustelun aloituksien näyttäminen omalla sivulla
-- Yhden kategorian lisäys keskustelun aloitukselle
 - Aktiivisimpien keskustelijoiden listaus
+- Suosituimpien kategorioiden listaus
 
 
 ## TOTEUTUNUT Tietokantakaavio

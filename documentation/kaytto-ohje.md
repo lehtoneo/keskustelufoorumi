@@ -47,5 +47,10 @@ Avaamalla omat keskustelut (kts. Itse aloittamien keskustelujen etsiminen ja luk
 
 ### Aktiivisimpien käyttäjien tarkastelu
 
-Painamalla yläpalkista nappulaa "Show the most active users" avautuu sivu, jossa näytetään aktiivisimmat käyttäjät.
+Painamalla yläpalkista nappulaa "Show forum statistics" avautuu sivu, jossa näytetään aktiivisimmat käyttäjät.
+
+### Suosituimpien kategorioiden tarkastelu
+
+Painamalla yläpalkista nappulaa "Show forum statistics" avautuu sivu, jossa näytetään suosituimmat kategoriat.
+
 
