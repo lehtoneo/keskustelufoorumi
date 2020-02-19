@@ -24,7 +24,6 @@ VALUES (?, lisätyn_threadin_id, categorian_id);
 
 #### Pystyy kommentoimaan keskusteluihin
 
-SQL-kysely:
 
 ```SQL
 INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) 
@@ -37,18 +36,24 @@ Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin
 
 #### Pystyy muokkaamaan omaa keskustelun aloitusta
 
-SQL-kysely: 
+SQL-kysely, jolla muokataan aihetta
 
 ```SQL
 Update Thread SET Title ='uusi_title', modified = 'tämän_hetkinen_aika' 
 WHERE id = muokattavan_keskustelun_id;
+
+SQL-kysely, jolla muokataan kuvausta
+
+```SQL
+Update Thread SET Description ='uusi_kuvaus', modified = 'tämän_hetkinen_aika' 
+WHERE id = muokattavan_keskustelun_id;
 ```
+
 
 #### Pystyy muokkaamaan omaa kommenttia
 
 #### Pystyy poistamaan oman keskustelun aloituksen
 
-SQL-kysely:
 
 ```SQL 
 DELETE FROM Thread WHERE id = poistettavan_keskustelun_id;
@@ -57,7 +62,6 @@ DELETE FROM Thread WHERE id = poistettavan_keskustelun_id;
 
 #### Pystyy poistamaan oman kommentin
 
-SQL-kysely: 
 
 ```SQL 
 DELETE FROM Comment WHERE id = poistettavan_kommentin_id;
@@ -70,7 +74,6 @@ DELETE FROM Comment WHERE id = poistettavan_kommentin_id;
 
 #### Pystyy näkemään ketkä ovat sovelluksen aktiivisimpia käyttäjiä
 
-SQL-kysely:
 
 ```SQL 
 SELECT username, COUNT(user.id) AS count FROM user 
@@ -81,7 +84,6 @@ ORDER BY count DESC;
 
 #### Pystyy löytämään helposti omat keskustelun avauksensa
 
-SQL-kysely:
 
 ```SQL
 SELECT * FROM Thread
@@ -125,6 +127,10 @@ ORDER BY count DESC
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
 #### Pystyy poistamaan minkä tahansa keskustelun aloituksen
 #### Pystyy poistamaan minkä tahansa kommentin
+
+
+
+
 
 ### Toteutumattomat käyttäjätarinat
 
