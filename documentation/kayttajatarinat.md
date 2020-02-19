@@ -63,7 +63,6 @@ SQL-kysely:
 DELETE FROM Comment WHERE id = poistettavan_kommentin_id;
 ```
 
-#### Pystyy näkemään, ketkä ovat lukeneet keskusteluita
 
 
 #### Pystyy etsimään keskusteluita kategorioittain
@@ -93,7 +92,8 @@ WHERE user_id = kirjautuneen_käyttäjän_id;
 SQL-kysely, jolla saa kaikki tietyn threadin tiedot:
 
 ```SQL
-SELECT * FROM Thread;
+SELECT * FROM Thread
+WHERE id = threadin_id;
 ```
 
 SQL-kysely, jolla saadaan auki tietyn threadin kommentit: 
@@ -109,4 +109,10 @@ WHERE (thread_id = tahan_threadin_id);
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
 #### Pystyy poistamaan minkä tahansa keskustelun aloituksen
 #### Pystyy poistamaan minkä tahansa kommentin
+
+### Toteutumattomat käyttäjätarinat
+
+### Käyttäjä
+
+##### Pystyy näkemään, ketkä ovat lukeneet keskusteluita
 
