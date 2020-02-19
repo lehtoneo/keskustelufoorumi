@@ -41,6 +41,7 @@ SQL-kysely, jolla muokataan aihetta
 ```SQL
 Update Thread SET Title ='uusi_title', modified = 'tämän_hetkinen_aika' 
 WHERE id = muokattavan_keskustelun_id;
+```
 
 SQL-kysely, jolla muokataan kuvausta
 
