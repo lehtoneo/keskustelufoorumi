@@ -39,7 +39,7 @@ def auth_registration():
 
     user = User(' ', form.username.data, form.password.data)
     
-    user.role = 'user'
+    
     
     db.session().add(user)
     db.session().commit()

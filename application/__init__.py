@@ -57,6 +57,8 @@ from application.comments import models
 from application.categories import models
 from application.categories.models import Category
 
+from application.roles import models
+
 from application.auth import models
 from application.auth import views
 

@@ -30,7 +30,7 @@ class Comment(db.Model):
         table = []
         for row in res:
             table.append({"username":row[0], "comment_text":row[1], "posted":row[2], "user_id":row[3], "id":row[4]})
-        print(table)
+        
         return table
 
         

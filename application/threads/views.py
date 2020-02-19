@@ -20,6 +20,8 @@ def threads_index():
 @app.route("/threads/category", methods=["POST"])
 def threads_with_category():
     categoryform = CategoryForm(request.form, False)
+    if categoryform.categories.data == 'All':
+        return threads_index()
     return open_threads_with_category(categoryform.categories.data)
 
 @app.route("/threads/<category_id>", methods=["GET"])

@@ -13,7 +13,6 @@ class User(db.Model):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
-    role = db.Column(db.String(5), nullable=False)
 
     threads = db.relationship("Thread", backref="user")
 
@@ -35,8 +34,7 @@ class User(db.Model):
         return True
 
     def roles(self):
-        if(self.role == "ADMIN"):
-            return ["ADMIN"]
+        
         return ["USER"]
 
     @staticmethod
@@ -50,7 +48,7 @@ class User(db.Model):
         
         table = []
         for row in res:
-            print(row[1])
+            
             rank = len(table) + 1
             table.append({"username":row[0], "count":row[1], "rank":rank})
         

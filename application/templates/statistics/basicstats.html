@@ -20,6 +20,28 @@
                 </tr>
             {% endfor %}
             </tbody>
+            
+        </table>
+        <h2>The most common categories</h2>
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Category </th>
+                    <th scope="col">Number of started threads with the category </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in mostcommon %}
+                <tr>
+                    <th scope="row"> {{ category.rank }}</th>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.count }}</td>
+                </tr>
+                {% endfor %}
+                
+                </tbody>
         </table>
     </div>
 {% endblock %}
