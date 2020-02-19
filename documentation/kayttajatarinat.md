@@ -6,30 +6,82 @@
 
 SQL-kysely:
 
-```INSERT INTO Thread (id, title, description, posted, modified, user_id) VALUES (?, 'title tähän', 'kuvaus tähän', ?, ?, kirjautuneen käyttäjän id tähän)```
+```SQL 
+INSERT INTO Thread (id, title, description, posted, modified, user_id) 
+VALUES (?, 'title_tähän', 'kuvaus_tähän', ?, ?, kirjautuneen_käyttäjän_id);
+```
 
 Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään.
 
 
 
-#### Pystyy vastaamaan keskusteluihin
+#### Pystyy kommentoimaan keskusteluihin
 
 SQL-kysely:
 
-```INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) VALUES (?, 'kommentin teksti tähän', ?, ?, sen keskustelun id johon vastataan tähän, kirjautuneen käyttäjän id tähän)``` 
+```SQL
+INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) 
+VALUES (?, 'kommentin_teksti', ?, ?, sen_keskustelun_id_johon_kommentoidaan, kirjautuneen_käyttäjän_id);
+``` 
 
 Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään
 
 
 
 #### Pystyy muokkaamaan omaa keskustelun aloitusta
+
+SQL-kysely: 
+
+```SQL
+Update Thread SET Title ='uusi_title', modified = 'tämän_hetkinen_aika' 
+WHERE id = muokattavan_keskustelun_id;
+```
+
 #### Pystyy muokkaamaan omaa kommenttia
+
 #### Pystyy poistamaan oman keskustelun aloituksen
-#### Pystyy poistamaan oman vastauksen
+
+SQL-kysely:
+
+```SQL 
+DELETE FROM Thread WHERE id = poistettavan_keskustelun_id;
+```
+
+
+#### Pystyy poistamaan oman kommentin
+
+SQL-kysely: 
+
+```SQL 
+DELETE FROM Comment WHERE id = poistettavan_kommentin_id;
+```
+
 #### Pystyy näkemään, ketkä ovat lukeneet keskusteluita
+
+
 #### Pystyy etsimään keskusteluita kategorioittain
+
+
 #### Pystyy näkemään ketkä ovat sovelluksen aktiivisimpia käyttäjiä
+
+SQL-kysely:
+
+```SQL 
+SELECT username, COUNT(user.id) AS count FROM user 
+INNER JOIN Thread ON (user.id = thread.user_id)
+GROUP BY user.id 
+ORDER BY count DESC;
+```
+
 #### Pystyy löytämään helposti omat keskustelun avauksensa
+
+SQL-kysely:
+
+```SQL
+SELECT * FROM Thread
+WHERE user_id = kirjautuneen_käyttäjän_id;
+```
+#### Pystyy lukemaan keskusteluita
 
 ## Admin
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
