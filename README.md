@@ -41,8 +41,12 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 - Aktiivisimpien keskustelijoiden listaus
 
 
+## TOTEUTUNUT Tietokantakaavio
 
+<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/tsohadbtoteutunut.png">
+          
 ## Tietokantakaavio
 
+Ajatus tietokannasta, jos halutaan tulevaisuudessa lisätä tieto siitä, ketkä ovat lukeneet keskustelut.
 
 <img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/dbPic.png">
