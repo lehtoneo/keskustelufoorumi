@@ -58,7 +58,7 @@ CREATE TABLE category (
 
 ## Thread__Category
 
-```
+```SQL
 CREATE TABLE thread__category (
         id INTEGER NOT NULL,
         thread_id INTEGER NOT NULL,
