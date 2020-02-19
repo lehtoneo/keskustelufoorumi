@@ -4,7 +4,7 @@
 
 #### Pystyy aloittamaan uuden keskustelun
 
-SQL-kysely:
+SQL-kysely, jolla lisätään keskustelu thread tauluun:
 
 ```SQL 
 INSERT INTO Thread (id, title, description, posted, modified, user_id) 
@@ -12,6 +12,13 @@ VALUES (?, 'title_tähän', 'kuvaus_tähän', ?, ?, kirjautuneen_käyttäjän_id
 ```
 
 Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään.
+
+SQL-kysely, jolla lisätään kategoria keskustelulle:
+
+```SQL
+INSERT INTO Thread__Category (id, thread_id, category_id)
+VALUES (?, lisätyn_threadin_id, categorian_id);
+```
 
 
 
