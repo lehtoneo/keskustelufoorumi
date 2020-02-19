@@ -83,6 +83,21 @@ WHERE user_id = kirjautuneen_käyttäjän_id;
 ```
 #### Pystyy lukemaan keskusteluita
 
+SQL-kysely, jolla saa kaikki tietyn threadin tiedot:
+
+```SQL
+SELECT * FROM Thread;
+```
+
+SQL-kysely, jolla saadaan auki tietyn threadin kommentit: 
+
+```SQL
+SELECT username, comment_text, posted, user.id, comment.id FROM user
+INNER JOIN Comment ON (user_id = user.id)
+WHERE (thread_id = tahan_threadin_id);
+```
+
+
 ## Admin
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
 #### Pystyy poistamaan minkä tahansa keskustelun aloituksen
