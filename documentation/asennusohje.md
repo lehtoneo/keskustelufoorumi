@@ -1,4 +1,4 @@
-# Asennusohje
+# Asennusohjeet
 
 ### Tarvittavat ohjelmat
 
@@ -10,16 +10,16 @@ Ohjeet olettavat, että konella, johon asennat ohjelman ainakin seuraavat ohjelm
 
 ## Asennus paikallisesti
 
-### 1. Lataaminen
+### Step 1. Lataaminen
 
-#### Lataus vaihtoehto 1.
+##### Lataus vaihtoehto 1.
 
 Mene projektin [juureen](https://github.com/lehtoneo/keskustelufoorumi), paina vihreää nappia clone or download. Jonka jälkeen pitäisi avautua valikko, jossa on mahdollisuus painaa nappia download zip.
 
 
 Paina download zip. Latauksen jälkeen pura tiedosto haluaamaasi paikkaan.
 
-#### Lataus vaihtoehto 2.
+##### Lataus vaihtoehto 2.
 
 Tarvitset koneellesi [gitin](https://git-scm.com/downloads/) seurataksesi tätä vaihtoehtoa.
 
@@ -27,7 +27,7 @@ Luo kansio johon haluat tuoda projektin ja navigoi kyseiseen kansioon. Suorita k
 
 ```git clone https://github.com/lehtoneo/keskustelufoorumi.git```
 
-### 2. Virtuaaliympäristön luominen ja käynnistäminen
+### Step 2. Virtuaaliympäristön luominen ja käynnistäminen
 
 Mene juuri lataamasi tiedoston juureen ja suorita komento:
 
@@ -36,12 +36,12 @@ Mene juuri lataamasi tiedoston juureen ja suorita komento:
 Käynnistä virtuaaliympäristö seuraamalla ohjeita [täältä](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/), kohdasta activating virtual environment. 
 
 
-### 3. Tarvittavien riippuvuuksien lataaminen
+### Step 3. Tarvittavien riippuvuuksien lataaminen
 
 Suorita juurihakemistossa komento 
 ```pip install -r requirements.txt```
 
-### 4. Käynnistys
+### Step 4. Käynnistys
 
 Suorita juurihakemistossa komento
 
@@ -74,7 +74,7 @@ Luodaan projektille paikka herokuun:
 
 Lisätään paikalliseen versionhallintaan herokusta
 
-```git remote add heroku https://git.heroku.com/tsoha-python-demo.git```
+```git remote add heroku https://git.heroku.com/oman_projektin_nimi.git```
 
 ### Step 3 
 
