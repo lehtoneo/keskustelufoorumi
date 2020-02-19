@@ -56,6 +56,16 @@ CREATE TABLE category (
 )
 ```
 
+## Role
+
+```SQL
+CREATE TABLE role (
+        id INTEGER NOT NULL,
+        role VARCHAR NOT NULL,
+        PRIMARY KEY (id)
+)
+```
+
 ## Thread__Category
 
 ```SQL
@@ -69,4 +79,16 @@ CREATE TABLE thread__category (
 )
 ```
 
+## User__Role
+
+```SQL
+CREATE TABLE user__role (
+        id INTEGER NOT NULL,
+        user_id INTEGER NOT NULL,
+        role_id INTEGER NOT NULL,
+        PRIMARY KEY (id),
+        FOREIGN KEY(user_id) REFERENCES user (id),
+        FOREIGN KEY(role_id) REFERENCES role (id)
+)
+```
 
