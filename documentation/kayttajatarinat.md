@@ -1,5 +1,7 @@
 # Käyttäjätarinat
 
+# Toteutuneet
+
 ## Normaali käyttäjä: 
 
 #### Pystyy aloittamaan uuden keskustelun
@@ -125,17 +127,16 @@ ORDER BY count DESC
 ``` 
 
 ## Admin
+
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
-#### Pystyy poistamaan minkä tahansa keskustelun aloituksen
-#### Pystyy poistamaan minkä tahansa kommentin
 
+# Toistaiseksi toteuttamattomat
 
-
-
-
-### Toteutumattomat käyttäjätarinat
-
-### Käyttäjä
+## Käyttäjä
 
 ##### Pystyy näkemään, ketkä ovat lukeneet keskusteluita
 
+## Admin
+
+#### Pystyy poistamaan minkä tahansa keskustelun aloituksen
+#### Pystyy poistamaan minkä tahansa kommentin
