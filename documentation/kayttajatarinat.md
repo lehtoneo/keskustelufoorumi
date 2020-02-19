@@ -104,6 +104,22 @@ INNER JOIN Comment ON (user_id = user.id)
 WHERE (thread_id = tahan_threadin_id);
 ```
 
+#### Pystyy näkemään aktiivisimmat käyttäjät
+
+```SQL
+SELECT username, COUNT("user".id) AS count FROM "user"
+INNER JOIN Thread ON ("user".id = thread.user_id)'
+GROUP BY user.id
+ORDER BY count DESC
+```
+
+#### Pystyy näkemään suosituimmat kategoriat
+```SQL
+SELECT name, COUNT(category.id) AS count FROM category
+INNER JOIN Thread__Category ON (category.id == Thread__Category.category_id)
+GROUP BY category.id
+ORDER BY count DESC
+``` 
 
 ## Admin
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
