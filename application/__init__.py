@@ -55,6 +55,7 @@ from application.threads import views
 from application.comments import models
 
 from application.categories import models
+from application.categories.models import Category
 
 from application.auth import models
 from application.auth import views
@@ -76,15 +77,15 @@ def init_categories():
     
     if(res.fetchone() != None):
         return
-    
-    stmt = text("INSERT INTO Category (id, name) VALUES (1, 'Sports');")
-    db.engine.execute(stmt)
 
-    stmt = text("INSERT INTO Category (id, name) VALUES (2, 'Gaming');")
-    db.engine.execute(stmt)
-    
-    stmt = text("INSERT INTO Category (id, name) VALUES (3, 'Programming');")
-    db.engine.execute(stmt)
+    category1 = Category('Sports')
+    category2 = Category('Gaming')
+    category3 = Category('Programming')
+    db.session().add(category1)
+    db.session().add(category2)
+    db.session().add(category3)
+    db.session().commit()
+
 
 
 
