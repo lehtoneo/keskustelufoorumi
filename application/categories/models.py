@@ -8,13 +8,13 @@ class Category(db.Model):
         self.name = name
 
     @staticmethod
-    def findChoices():
+    def findChoices(other):
         init = Category.query.all()
         table = []
         for category in init:
             table.append((str(category.id), str(category.name)))
-        
-        table.append(('other', 'other'))
+        if other is True:
+            table.append(('other', 'other'))
         return table
 
     

@@ -14,17 +14,17 @@ from application.threads.forms import EditThreadTitleForm, EditThreadDescription
 
 @app.route("/threads", methods=["GET"])
 def threads_index():
-    categoryform = CategoryForm(None)
+    categoryform = CategoryForm(None, False)
     return render_template("threads/list.html", threads = Thread.connect_threads_and_categories(None), categoryform = categoryform)
 
 @app.route("/threads/category", methods=["POST"])
 def threads_with_category():
-    categoryform = CategoryForm(request.form)
+    categoryform = CategoryForm(request.form, False)
     return open_threads_with_category(categoryform.categories.data)
 
 @app.route("/threads/<category_id>", methods=["GET"])
 def open_threads_with_category(category_id):
-    return render_template("threads/list.html", threads = Thread.connect_threads_and_categories(category_id), categoryform = CategoryForm(None))
+    return render_template("threads/list.html", threads = Thread.connect_threads_and_categories(category_id), categoryform = CategoryForm(None, False))
 
 @app.route("/threads/read/<thread_id>", methods=["POST"])
 @login_required
@@ -120,7 +120,7 @@ def comment_delete(comment_id):
 @app.route("/threads/new")
 @login_required
 def threads_form():
-    categoryform = CategoryForm(None)
+    categoryform = CategoryForm(None, True)
     return render_template("threads/new.html", threadform = NewThreadForm(), categoryform = categoryform)
 
 
@@ -129,7 +129,7 @@ def threads_form():
 @login_required
 def threads_create():
     threadform = NewThreadForm(request.form)
-    categoryform = CategoryForm(request.form)
+    categoryform = CategoryForm(request.form, True)
 
     
 
