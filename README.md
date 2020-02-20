@@ -46,10 +46,10 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 
 ## TOTEUTUNUT Tietokantakaavio
 
-<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/tsohadbtoteutunut.png">
+<img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/tsohaDBtot.png">
           
 ## TULEVAISUUDEN Tietokantakaavio
 
-Ajatus tietokannasta, jos halutaan tulevaisuudessa lisätä tieto siitä, ketkä ovat lukeneet keskustelut.
+Ajatus tietokannasta, jos halutaan tulevaisuudessa lisätä tieto siitä, ketkä ovat lukeneet keskustelut. (Tässäkin tietokannassa roolit olisi omassa taulussa)
 
 <img src="https://github.com/lehtoneo/keskustelufoorumi/blob/master/documentation/pics/dbPic.png">
