@@ -27,7 +27,7 @@ class Category(db.Model):
     @staticmethod
     def most_common_categories():
         stmt = text('SELECT name, COUNT(category.id) AS count FROM category'
-                     ' INNER JOIN Thread_Category ON (category.id == Thread_Category.category_id)'
+                     ' INNER JOIN "Thread_Category" ON (category.id == "Thread_Category".category_id)'
                      ' GROUP BY category.id'
                      ' ORDER BY count DESC')
         res = db.engine.execute(stmt)
