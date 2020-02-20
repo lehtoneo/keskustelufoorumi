@@ -18,7 +18,7 @@ Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin
 SQL-kysely, jolla lisätään kategoria keskustelulle:
 
 ```SQL
-INSERT INTO Thread__Category (id, thread_id, category_id)
+INSERT INTO Thread_Category (id, thread_id, category_id)
 VALUES (?, lisätyn_threadin_id, categorian_id);
 ```
 

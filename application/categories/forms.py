@@ -10,8 +10,9 @@ def CategoryForm(requestform, other):
         class Meta:
             csrf = False
     setattr(TempForm, 'categories', SelectField(u'Select Category', choices=Category.findChoices(other)))
-    if(requestform == None):
+    
+    if requestform is None:
         return TempForm()
         
-
     return TempForm(requestform)
+

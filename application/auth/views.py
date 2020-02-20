@@ -34,8 +34,8 @@ def auth_registration():
     test = User.query.filter_by(username=form.username.data).first()
 
     if test:
-        return render_template("auth/registrationform.html", form = form,
-                               takenError = "Username is taken")
+        form.username.errors.append('Username is taken')
+        return render_template("auth/registrationform.html", form = form)
 
     user = User(' ', form.username.data, form.password.data)
     

@@ -17,20 +17,4 @@ class Comment(db.Model):
         self.comment_text = comment_text
         
 
-
-    @staticmethod
-    def connect_users_and_comments(threadid):
-        stmt = text('SELECT username, comment_text, posted, "user".id, comment.id FROM "user"'
-                     ' INNER JOIN Comment ON (user_id = "user".id)'
-                     ' WHERE (thread_id = :threadid);')
-        
-        res = db.engine.execute(stmt, threadid=threadid)
-
-        
-        table = []
-        for row in res:
-            table.append({"username":row[0], "comment_text":row[1], "posted":row[2], "user_id":row[3], "id":row[4]})
-        
-        return table
-
         

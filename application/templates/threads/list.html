@@ -22,17 +22,19 @@
     <tr>
       <th>Thread title</th>
       <th>Poster </th>
-      <th>Category</th>
+      <th>Categories</th>
       <th>Posted</th>
     </tr>
     {% for thread in threads %}
     <tr>
       <td><a href="{{ url_for('threads_open', thread_id=thread.id) }}">{{ thread.title }}</a></td>
       <td> 
-        {{ thread.username }}
+        {{ thread.user.username }}
       </td>
     <td>
-      {{ thread.category }}
+      {% for category in thread.categories %}
+      {{ category.category.name }}
+      {% endfor %}
     </td>
 
     <td> 

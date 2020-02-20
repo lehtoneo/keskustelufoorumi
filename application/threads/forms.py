@@ -24,4 +24,5 @@ class EditThreadDescriptionForm(FlaskForm):
     description = TextAreaField("New description: ", [validators.Length(max=200)])
     class Meta:
         csrf = False
+        
 

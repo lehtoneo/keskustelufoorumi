@@ -39,13 +39,33 @@
       </div>
       <button type="submit" class="btn btn-warning mb-2">Edit description</button>  
       </div>
+    </form>
 
+    <form method="POST" action="{{ url_for('threads_add_new_category', thread_id=thread.id)}}">
+      <div class="form-group">
+        <label>Add a new category</label>
+        {{ categoryform.categories(class="custom-select") }}
+      </div>
+
+      <div class="form-group">
+        <label>{{ categoryform.othercategory.label }} </label>
+        {{ categoryform.othercategory(class="form-control", placeholder="Enter new category name, e.g Fishing")}}
+        <div class="invalid-feedback d-block">
+          <ul>
+            {% for error in categoryform.othercategory.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-warning mb-2">Add category</button>
     </form>
       
 
     
-      
   <div>
+
+    <br>
   <form method="POST" action="{{ url_for('threads_delete', thread_id=thread.id) }}">
     
     <button type="submit" class="btn btn-danger">Delete Thread</button>
