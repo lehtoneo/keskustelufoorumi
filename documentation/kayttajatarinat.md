@@ -53,8 +53,6 @@ WHERE id = muokattavan_keskustelun_id;
 ```
 
 
-#### Pystyy muokkaamaan omaa kommenttia
-
 #### Pystyy poistamaan oman keskustelun aloituksen
 
 
@@ -74,6 +72,13 @@ DELETE FROM Comment WHERE id = poistettavan_kommentin_id;
 
 #### Pystyy etsimään keskusteluita kategorioittain
 
+```SQL
+SELECT *  
+FROM thread
+WHERE EXISTS (SELECT 1
+FROM "Thread_Category"
+WHERE thread.id = "Thread_Category".thread_id AND "Thread_Category".category_id = kategorian_id)
+```
 
 #### Pystyy näkemään ketkä ovat sovelluksen aktiivisimpia käyttäjiä
 

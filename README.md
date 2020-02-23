@@ -8,8 +8,17 @@
 
 Mikäli ei halua tehdä itse sovellukseen omia tunnuksia, voit käyttää seuraavia testitunnuksia:
 
-Username: username  
-Password: password
+Normaali käyttäjä:
+
+Username: user  
+
+Password: user
+
+Admin:
+
+Username: admin
+
+Password: admin
 
 ## Dokumentaatio
 
@@ -35,6 +44,7 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 - Keskusteluun vastaaminen
 - Keskusteluiden listaaminen
 - Keskustelun etsiminen kategorioittain
+- Keskustelujen listaaminen uusimmasta vanhimaan ja vanhimmasta uusimpaan
 - Kommenttien katselu
 - Oman vastauksen ja keskustelun aloituksen poistaminen
 - Oman keskustelun aiheen muokkaaminen
