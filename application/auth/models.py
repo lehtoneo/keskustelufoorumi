@@ -1,9 +1,9 @@
 from application import db
 from sqlalchemy.sql import text
-
+from sqlalchemy.orm import relationship
 class User(db.Model):
 
-    __tablename__ = "user"
+    __tablename__ = 'user'
   
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
@@ -16,6 +16,8 @@ class User(db.Model):
 
     threads = db.relationship("Thread", backref="user")
     comments = db.relationship("Comment", backref="user")
+    roles = db.relationship("User_Role", back_populates="user")
+
     def __init__(self, name, username, password):
         self.name = name
         self.username = username
@@ -33,9 +35,14 @@ class User(db.Model):
     def is_authenticated(self):
         return True
 
-    def roles(self):
-        
-        return ["USER"]
+    def getRoles(self):
+        rolelist = self.roles
+        roles = []
+        for role in rolelist:
+            roles.append(str(role.role.role))
+        return roles
+
+    
 
     @staticmethod
     def most_active_users_threads():

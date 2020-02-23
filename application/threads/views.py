@@ -15,8 +15,40 @@ from application.threads.forms import EditThreadTitleForm, EditThreadDescription
 @app.route("/threads", methods=["GET"])
 def threads_index():
     categoryform = CategoryForm(None, False)
+    admin = False
+    if current_user.is_authenticated:
+        if "ADMIN" in current_user.getRoles():
+            admin = True
 
-    return render_template("threads/list.html", threads = Thread.query.all(), categoryform = categoryform)
+    return render_template("threads/list.html", threads = Thread.query.all(), categoryform = categoryform, admin = admin)
+
+
+@app.route("/threads/admin/delete/thread/<thread_id>", methods=["POST"])
+@login_required(role="ADMIN")
+def admin_thread_delete(thread_id):
+
+    Comment.query.filter_by(thread_id=thread_id).delete()
+    Thread_Category.query.filter_by(thread_id=thread_id).delete()
+    Thread.query.filter_by(id=thread_id).delete()
+
+    db.session().commit()
+
+    return threads_index()
+
+@app.route("/threads/admin/delete/comment/<comment_id>", methods=["POST"])
+@login_required(role="ADMIN")
+def admin_comment_delete(comment_id):
+
+    comment = Comment.query.get(comment_id)
+    threadid = comment.thread_id
+
+    Comment.query.filter_by(id=comment_id).delete()
+    db.session().commit()
+
+
+    return threads_open(threadid)
+
+
 
 @app.route("/threads/category", methods=["POST"])
 def threads_with_category():
@@ -28,9 +60,9 @@ def threads_with_category():
 @app.route("/threads/<category_id>", methods=["GET"])
 def open_threads_with_category(category_id):
     
-    threads_with_category = Category.query.get(category_id).threads
+    threadsWithCategory = Category.query.get(category_id).threads
     threads = []
-    for thread_category in threads_with_category: 
+    for thread_category in threadsWithCategory: 
         threads.append(thread_category.thread)
     
     return render_template("threads/list.html", threads = threads, categoryform = CategoryForm(None, False))
@@ -42,8 +74,13 @@ def threads_open(thread_id):
     thread = Thread.query.get(thread_id)
 
     comments = thread.comments
+
+    admin = False
+    if current_user.is_authenticated:
+        if "ADMIN" in current_user.getRoles():
+            admin = True
     
-    return render_template("threads/showthread.html", form = CommentForm(), comments = comments, thread = thread, user = thread.user)
+    return render_template("threads/showthread.html", form = CommentForm(), comments = comments, thread = thread, user = thread.user, admin = admin)
 
 @app.route("/threads/edit/<thread_id>")
 @login_required
@@ -215,7 +252,8 @@ def threads_delete(thread_id):
 def comment_delete(comment_id):
     comment = Comment.query.get(comment_id)
     threadid = comment.thread_id
-
+    if(comment.user_id != current_user.id):
+        return threads_open(threadid)
     Comment.query.filter_by(id=comment_id).delete()
     db.session().commit()
 

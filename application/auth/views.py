@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user
 
 from application import app, db
 from application.auth.models import User
+from application.roles.models import User_Role, Role
 from application.auth.forms import LoginForm
 from application.auth.forms import RegistrationForm
 
@@ -40,11 +41,11 @@ def auth_registration():
     user = User(' ', form.username.data, form.password.data)
     
     
-    
     db.session().add(user)
     db.session().commit()
 
-
+    db.session().add(User_Role(user.id, 1))
+    db.session().commit()
     login_user(user)
     return redirect(url_for("index"))
 

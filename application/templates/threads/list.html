@@ -24,6 +24,9 @@
       <th>Poster </th>
       <th>Categories</th>
       <th>Posted</th>
+      {% if admin %}
+      <th>Delete</th>
+      {% endif %}
     </tr>
     {% for thread in threads %}
     <tr>
@@ -41,6 +44,13 @@
       {{ thread.posted }}
     </td>
 
+    {% if admin %}
+    <td>
+      <form method="POST" action="{{ url_for('admin_thread_delete', thread_id=thread.id) }}">
+        <button type="submit">DELETE</button>
+      </form>
+    </td>
+    {% endif %}
     </tr>
     {% endfor %}
   </table>
