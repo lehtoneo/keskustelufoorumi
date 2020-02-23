@@ -179,7 +179,6 @@ def threads_add_new_category(thread_id):
             return render_template("threads/edit.html", threadform = EditThreadTitleForm(), descform = EditThreadDescriptionForm(),categoryform = categoryform)
 
         newcategory = Category(categoryform.othercategory.data)
-        
         db.session().add(newcategory)
         db.session().commit()
         thread_category = Thread_Category(thread.id, newcategory.id)
@@ -191,7 +190,11 @@ def threads_add_new_category(thread_id):
     
     
     
-    
+    categories = Category.query.filter(Category.threads.any(thread_id=thread_id)).all()
+    for category in categories:
+        if(category.id == int(categoryform.categories.data)):
+            return redirect(url_for("threads_index"))
+
     thread_category = Thread_Category(thread.id, int(categoryform.categories.data))
     db.session().add(thread_category)
     db.session().commit()
