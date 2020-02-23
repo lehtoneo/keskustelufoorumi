@@ -39,7 +39,7 @@ def login_required(_func=None, *, role="ANY"):
             if not (current_user and current_user.is_authenticated):
                 return login_manager.unauthorized()
 
-            acceptable_roles = set(("ANY", *current_user.roles()))
+            acceptable_roles = set(("ANY", *current_user.getRoles()))
 
             if role not in acceptable_roles:
                 return login_manager.unauthorized()
@@ -58,6 +58,7 @@ from application.categories import models
 from application.categories.models import Category
 
 from application.roles import models
+from application.roles.models import Role, User_Role
 
 from application.auth import models
 from application.auth import views
@@ -83,10 +84,29 @@ def init_categories():
     category1 = Category('Sports')
     category2 = Category('Gaming')
     category3 = Category('Programming')
+
+    userrole = Role('USER')
+    adminrole = Role('ADMIN')
+
+    db.session().add(userrole)
+    db.session().add(adminrole)
+
     db.session().add(category1)
     db.session().add(category2)
     db.session().add(category3)
     db.session().commit()
+
+    normaluser = User(' ', 'user', 'user')
+    adminuser = User(' ', 'admin', 'admin')
+    
+    db.session().add(normaluser)
+    db.session().add(adminuser)
+    db.session().commit()
+
+    db.session().add(User_Role(normaluser.id, 1))
+    db.session().add(User_Role(adminrole.id, 2))
+    db.session().commit()
+
 
 
 
