@@ -1,35 +1,11 @@
-{% extends "layout.html" %}
+{% extends "listlayout.html" %}
 
-{% block content %}
+{% block blocker %}
+
 <h2>Welcome to forum for everyone!</h2>
   <p>
     Use the navigation bar to navigate trough the site! 
   </p>
 <h4> The most recently started threads </h4>
-<table class="table table-bordered table-dark">
-  <tr>
-    <th>Thread title</th>
-    <th>Poster </th>
-    <th>Categories</th>
-    <th>Posted</th>
-  </tr>
-  {% for thread in threads %}
-  <tr>
-    <td><a href="{{ url_for('threads_open', thread_id=thread.id) }}">{{ thread.title }}</a></td>
-    <td> 
-      {{ thread.user.username }}
-    </td>
-  <td>
-    {% for category in thread.categories %}
-    {{ category.category.name }}
-    {% endfor %}
-  </td>
-
-  <td> 
-    {{ thread.posted }}
-  </td>
-
-  </tr>
-  {% endfor %}
-</table>
+<br>
 {% endblock %}
