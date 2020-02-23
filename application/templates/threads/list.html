@@ -1,12 +1,13 @@
-{% extends "layout.html" %}
+{% extends "listlayout.html" %}
 
-{% block content %}
+{% block blocker %}
   <div class="page header">
-    <h1>All of the threads in the forum </h1>
+    <h1>All threads </h1>
     
     <br>
 
   </div>
+  <h3>Search</h3>
   <form method="POST" action="{{ url_for('threads_with_category') }}">
   <div class="form-group">
     <label> Select category</label>
@@ -17,41 +18,10 @@
   
     
   </form>
-  <h5>Click title to open thread!</h5>
-  <table class="table table-bordered table-dark">
-    <tr>
-      <th>Thread title</th>
-      <th>Poster </th>
-      <th>Categories</th>
-      <th>Posted</th>
-      {% if admin %}
-      <th>Delete</th>
-      {% endif %}
-    </tr>
-    {% for thread in threads %}
-    <tr>
-      <td><a href="{{ url_for('threads_open', thread_id=thread.id) }}">{{ thread.title }}</a></td>
-      <td> 
-        {{ thread.user.username }}
-      </td>
-    <td>
-      {% for category in thread.categories %}
-      {{ category.category.name }}
-      {% endfor %}
-    </td>
 
-    <td> 
-      {{ thread.posted }}
-    </td>
-
-    {% if admin %}
-    <td>
-      <form method="POST" action="{{ url_for('admin_thread_delete', thread_id=thread.id) }}">
-        <button type="submit">DELETE</button>
-      </form>
-    </td>
-    {% endif %}
-    </tr>
-    {% endfor %}
-  </table>
+  <form method="GET" action="{{ url_for('customsearch_open') }}">
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary mb-2"> Custom search</button>
+  </div>
+  </form>
 {% endblock %}

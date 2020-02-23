@@ -10,18 +10,16 @@
       <th>Posted</th>
     </tr>
 
-    {% if ownthreads[0]  %}
+    {% if threads[0]  %}
     
-    {% for thread in ownthreads %}
+    {% for thread in threads %}
     <tr>
       <td><a href="{{ url_for('threads_open', thread_id=thread.id) }}">{{ thread.title }}</a></td>
       <td> {{ thread.posted }}</td>
       <td> 	
-        {% if current_user.id == thread.user_id %}
         <form method="GET" action="{{ url_for('threads_openedit', thread_id=thread.id) }}">
         <input type="submit" value="Edit this thread!"/>
         </form> 
-        {% endif %}
     </td>
     </tr>
     {% endfor %}

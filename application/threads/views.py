@@ -22,6 +22,15 @@ def threads_index():
 
     return render_template("threads/list.html", threads = Thread.query.all(), categoryform = categoryform, admin = admin)
 
+@app.route("/threads/custom", methods=["GET"])
+def threads_with_customsearch(threads):
+    categoryform = CategoryForm(None, False)
+    admin = False
+    if current_user.is_authenticated:
+        if "ADMIN" in current_user.getRoles():
+            admin = True
+
+    return render_template("customsearch/listcustom.html", threads = threads, categoryform = categoryform, admin = admin)
 
 @app.route("/threads/admin/delete/thread/<thread_id>", methods=["POST"])
 @login_required(role="ADMIN")
@@ -60,10 +69,7 @@ def threads_with_category():
 @app.route("/threads/<category_id>", methods=["GET"])
 def open_threads_with_category(category_id):
     
-    threadsWithCategory = Category.query.get(category_id).threads
-    threads = []
-    for thread_category in threadsWithCategory: 
-        threads.append(thread_category.thread)
+    threads = Thread.query.filter(Thread.categories.any(category_id=category_id)).all()
     
     return render_template("threads/list.html", threads = threads, categoryform = CategoryForm(None, False))
 
@@ -152,7 +158,7 @@ def threads_openmythreads():
     ownthreads = Thread.query.filter_by(user_id=user.id)
     
 
-    return render_template("threads/mythreads.html", ownthreads = ownthreads)
+    return render_template("threads/mythreads.html", threads = ownthreads)
 
 @app.route("/threads/edit/<thread_id>/addcategory", methods=["POST"])
 @login_required

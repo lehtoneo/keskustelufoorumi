@@ -1,0 +1,45 @@
+{% include "layout.html" %}
+<main role="main" class="container">
+{% block blocker %}
+{% endblock %}
+
+{% block content %}
+<h5>Click title to open thread!</h5>
+<table class="table table-bordered table-dark">
+  <tr>
+    <th>Thread title</th>
+    <th>Poster </th>
+    <th>Categories</th>
+    <th>Posted</th>
+    {% if admin %}
+    <th>Delete</th>
+    {% endif %}
+  </tr>
+  {% for thread in threads %}
+  <tr>
+    <td><a href="{{ url_for('threads_open', thread_id=thread.id) }}">{{ thread.title }}</a></td>
+    <td> 
+      {{ thread.user.username }}
+    </td>
+  <td>
+    {% for category in thread.categories %}
+    {{ category.category.name }}
+    {% endfor %}
+  </td>
+
+  <td> 
+    {{ thread.posted }}
+  </td>
+
+  {% if admin %}
+  <td>
+    <form method="POST" action="{{ url_for('admin_thread_delete', thread_id=thread.id) }}">
+      <button type="submit">DELETE</button>
+    </form>
+  </td>
+  {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
+</main>
