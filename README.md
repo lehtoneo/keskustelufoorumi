@@ -11,11 +11,13 @@ Mikäli ei halua tehdä itse sovellukseen omia tunnuksia, voit käyttää seuraa
 Normaali käyttäjä:
 
 Username: user  
+
 Password: user
 
 Admin:
 
 Username: admin
+
 Password: admin
 
 ## Dokumentaatio
