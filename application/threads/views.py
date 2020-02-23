@@ -140,7 +140,12 @@ def threads_create():
         thread_category = Thread_Category(thread.id, newcategory.id)
         db.session().add(thread_category)
         db.session().commit()
-
+        thread2 = Thread.query.get(thread.id)
+        print("!!!!!")
+        print(thread2.title)
+        print("!!!!!!")
+        thread2.posted = datetime.now().replace(microsecond=0, second=0)
+        db.session().commit()
         return redirect(url_for("threads_index"))
 
     db.session().add(thread)
@@ -148,7 +153,12 @@ def threads_create():
     thread_category = Thread_Category(thread.id, int(categoryform.categories.data))
     db.session().add(thread_category)
     db.session().commit()
-
+    thread2 = Thread.query.get(thread.id)
+    print("!!!!!")
+    print(thread2.title)
+    print("!!!!!!")
+    thread2.posted = datetime.now().replace(microsecond=0, second=0)
+    db.session().commit()
     return redirect(url_for("threads_index"))
 
 @app.route("/threads/mythreads")
@@ -213,7 +223,7 @@ def threads_confirm_title_edit(thread_id):
 
     if not titleform.validate():
         
-        return render_template("threads/edit.html", thread = thread, titleform = titleform, descform = EditThreadDescriptionForm())
+        return render_template("threads/edit.html", thread = thread, titleform = titleform, descform = EditThreadDescriptionForm(), categoryform = CategoryForm(None, False))
 
 
     
@@ -237,7 +247,7 @@ def threads_confirm_description_edit(thread_id):
 
     
     thread.description = descform.description.data
-    thread.modified = datetime.now().replace(microsecond=0).replace(second=0)
+    thread.modified = datetime.now().replace(microsecond=0)
     db.session().commit()
 
     return threads_open(thread_id)

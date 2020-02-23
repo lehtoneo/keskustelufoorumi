@@ -15,7 +15,7 @@
     {% for thread in threads %}
     <tr>
       <td><a href="{{ url_for('threads_open', thread_id=thread.id) }}">{{ thread.title }}</a></td>
-      <td> {{ thread.posted }}</td>
+      <td> {{ thread.posted.strftime('%d.%m.%Y at %H.%M') }}</td>
       <td> 	
         <form method="GET" action="{{ url_for('threads_openedit', thread_id=thread.id) }}">
         <input type="submit" value="Edit this thread!"/>

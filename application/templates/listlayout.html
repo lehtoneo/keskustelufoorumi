@@ -28,7 +28,7 @@
   </td>
 
   <td> 
-    {{ thread.posted }}
+    {{ thread.posted.strftime('%d.%m.%Y at %H.%M') }}
   </td>
 
   {% if admin %}

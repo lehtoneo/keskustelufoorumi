@@ -5,7 +5,11 @@
     <h2> {{ thread.title }} </h2>
     Posted by: {{ user.username }} 
     <br>
-    {{ thread.posted }}
+    Posted: {{ thread.posted.strftime('%d.%m.%Y at %H.%M') }}
+    <br>
+    {% if thread.modified != thread.posted %}
+    Modified: {{ thread.modified.strftime('%d.%m.%Y at %H.%M') }}
+    {% endif %}
     <br>
     <br>
     <p class="font-weight-bold">
@@ -22,7 +26,7 @@
   
   <table>
     <tr>
-      <td> <strong> {{ comment.user.username }} &#8226; {{ comment.posted }} </strong> </td>
+      <td> <strong> {{ comment.user.username }} &#8226; {{ comment.posted.strftime('%d.%m.%Y at %H.%M') }} </strong> </td>
       
       
     </tr>
