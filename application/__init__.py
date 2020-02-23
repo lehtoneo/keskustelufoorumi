@@ -54,6 +54,8 @@ from application.threads import models
 from application.threads import views
 from application.comments import models
 
+from application.customsearch import views
+
 from application.categories import models
 from application.categories.models import Category
 

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="page header">
+    <h2>Search threads with custom filters</h2>
+  </div>
+    <form method="POST" action="{{ url_for('customsearch_search') }}">
+    <div class="form-group">
+      <label> Select category </label>
+      {{ categoryform.categories(class="custom-select") }}
+      <br>
+      <br>
+      <label> Newest or oldest first? </label>
+      {% for subfield in dateform.radios %}
+      
+      <tr>
+          <td>{{ subfield(class="radio") }}</td>
+          <td>{{ subfield.label }}</td>
+      </tr>
+      {% endfor %}
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary mb-2">Show</button>
+    </div>
+    
+      
+    </form>
+{% endblock %}

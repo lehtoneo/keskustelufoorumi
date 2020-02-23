@@ -1,0 +1,20 @@
+{% extends "listlayout.html" %}
+
+
+{% block blocker %}
+
+  <div class="page header">
+    <h1> Results </h1>
+    
+    <br>
+
+  </div>
+
+  <form method="GET" action="{{ url_for('customsearch_open') }}">
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary mb-2">New Custom search</button>
+  </div>
+  </form>
+
+  
+{% endblock %}
