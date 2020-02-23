@@ -77,7 +77,7 @@ SELECT *
 FROM thread
 WHERE EXISTS (SELECT 1
 FROM "Thread_Category"
-WHERE thread.id = "Thread_Category".thread_id AND "Thread_Category".category_id = ?)
+WHERE thread.id = "Thread_Category".thread_id AND "Thread_Category".category_id = kategorian_id)
 ```
 
 #### Pystyy näkemään ketkä ovat sovelluksen aktiivisimpia käyttäjiä
