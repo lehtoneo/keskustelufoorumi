@@ -134,6 +134,10 @@ ORDER BY count DESC
 ## Admin
 
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
+#### Pystyy poistamaan minkä tahansa keskustelun aloituksen
+SQL lause on sama kuin normaalilla käyttäjällä, mutta adminin ollessa kirjautunut, ei tarkisteta onko keskustelu oma.
+#### Pystyy poistamaan minkä tahansa kommentin
+SQL lause on sama kuin normaalilla käyttäjällä, mutta adminin ollessa kirjautunut, ei tarkisteta onko kommentti oma.
 
 # Toistaiseksi toteuttamattomat
 
@@ -141,7 +145,3 @@ ORDER BY count DESC
 
 ##### Pystyy näkemään, ketkä ovat lukeneet keskusteluita
 
-## Admin
-
-#### Pystyy poistamaan minkä tahansa keskustelun aloituksen
-#### Pystyy poistamaan minkä tahansa kommentin
