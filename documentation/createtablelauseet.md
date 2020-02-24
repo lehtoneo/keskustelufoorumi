@@ -66,10 +66,10 @@ CREATE TABLE role (
 )
 ```
 
-## Thread__Category
+## Thread_Category
 
 ```SQL
-CREATE TABLE thread__category (
+CREATE TABLE thread_category (
         id INTEGER NOT NULL,
         thread_id INTEGER NOT NULL,
         category_id INTEGER NOT NULL,
@@ -79,10 +79,10 @@ CREATE TABLE thread__category (
 )
 ```
 
-## User__Role
+## User_Role
 
 ```SQL
-CREATE TABLE user__role (
+CREATE TABLE user_role (
         id INTEGER NOT NULL,
         user_id INTEGER NOT NULL,
         role_id INTEGER NOT NULL,
