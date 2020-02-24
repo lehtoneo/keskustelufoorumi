@@ -120,7 +120,7 @@ WHERE (thread_id = tahan_threadin_id);
 SELECT username, COUNT("user".id) AS count FROM "user"
 INNER JOIN Thread ON ("user".id = thread.user_id)'
 GROUP BY user.id
-ORDER BY count DESC
+ORDER BY count DESC;
 ```
 
 #### Pystyy näkemään suosituimmat kategoriat
@@ -128,9 +128,21 @@ ORDER BY count DESC
 SELECT name, COUNT(category.id) AS count FROM category
 INNER JOIN Thread__Category ON (category.id == Thread__Category.category_id)
 GROUP BY category.id
-ORDER BY count DESC
+ORDER BY count DESC;
 ``` 
+#### Keskustelujen listaaminen uusimmasta vanhimaan ja vanhimmasta uusimpaan
+Uusimmasta vanhimpaan:
 
+```SQL
+SELECT * FROM thread 
+ORDER BY thread.posted DESC;
+```
+Vanhimmasta uusimpaan:
+
+```SQL
+SELECT * FROM thread 
+ORDER BY thread.posted ASC;
+```
 ## Admin
 
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
