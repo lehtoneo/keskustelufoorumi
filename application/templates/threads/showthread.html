@@ -22,6 +22,15 @@
   
   <h3> Comments </h3>
   <div>
+  {% if not comments[0] %}
+  <table>
+    <tr>
+      <td>
+        There are no comments yet :(
+      </td>
+    </tr>
+  </table>
+  {% endif %}
   {% for comment in comments %}
   
   <table>
