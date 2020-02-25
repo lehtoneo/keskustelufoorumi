@@ -1,4 +1,6 @@
-# Käyttäjätarinat
+# Käyttäjätarinat ja niihin liittyvät SQL-kyselyt
+
+Huom. Joissain kyselyissä on hipsut "" sen takia, että ne toimisivat myös pilvessä PostgreSQL:ssä.
 
 # Toteutuneet
 
@@ -70,7 +72,23 @@ DELETE FROM Comment WHERE id = poistettavan_kommentin_id;
 
 
 
-#### Pystyy etsimään keskusteluita kategorioittain
+#### Pystyy etsimään keskusteluita
+
+##### Ajan perusteella
+Uusimmasta vanhimpaan:
+
+```SQL
+SELECT * FROM thread 
+ORDER BY thread.posted DESC;
+```
+
+Vanhimmasta uusimpaan:
+
+```SQL
+SELECT * FROM thread 
+ORDER BY thread.posted ASC;
+```
+##### Kategorioittain
 
 ```SQL
 SELECT *  
@@ -79,6 +97,19 @@ WHERE EXISTS (SELECT 1
 FROM "Thread_Category"
 WHERE thread.id = "Thread_Category".thread_id AND "Thread_Category".category_id = kategorian_id)
 ```
+
+##### Sekä ajan, että kategorian perusteella
+
+Kysely hakee keskustelut uusimmasta vanhimpaan. Jos halutaan vanhimmasta uusimpaan, vaihdetaan vain lopusta DESC -> ASC 
+
+```SQL
+SELECT * FROM thread
+WHERE EXISTS (SELECT 1
+FROM "Thread_Category"
+WHERE thread.id = "Thread_Category".thread_id AND "Thread_Category".category_id = kategorian_id) ORDER BY thread.posted DESC;
+```
+
+
 
 #### Pystyy näkemään ketkä ovat sovelluksen aktiivisimpia käyttäjiä
 
@@ -106,7 +137,7 @@ SELECT * FROM Thread
 WHERE id = threadin_id;
 ```
 
-SQL-kysely, jolla saadaan auki tietyn threadin kommentit: 
+SQL-kysely, jolla saadaan auki tietyn threadin kommentit ja siihen liittyvät oleelliset tiedot: 
 
 ```SQL
 SELECT username, comment_text, posted, user.id, comment.id FROM user
@@ -130,19 +161,7 @@ INNER JOIN Thread__Category ON (category.id == Thread__Category.category_id)
 GROUP BY category.id
 ORDER BY count DESC;
 ``` 
-#### Keskustelujen listaaminen uusimmasta vanhimaan ja vanhimmasta uusimpaan
-Uusimmasta vanhimpaan:
 
-```SQL
-SELECT * FROM thread 
-ORDER BY thread.posted DESC;
-```
-Vanhimmasta uusimpaan:
-
-```SQL
-SELECT * FROM thread 
-ORDER BY thread.posted ASC;
-```
 ## Admin
 
 #### Pystyy tekemään kaiken mitä normaali käyttäjä pystyy tekemään
