@@ -43,7 +43,6 @@
       <td> {{ comment.comment_text }}
         {% if admin %}
         <br>
-        <br>
         <form method="POST" action="{{ url_for('admin_comment_delete', comment_id=comment.id) }}">
           <div class="form-group">
             <br>
@@ -58,14 +57,16 @@
           <div class="form-group">
             <button type="submit" class="btn btn-danger pull-left">Delete</button>
           </div>
-        </form>
-        <form method="GET" action="{{ url_for('comment_edit', comment_id=comment.id) }}">
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary pull-right">Edit</button>
-          </div>
-        </form>
       {% endif %}
       {% endif %}
+      {% if comment.user_id == current_user.id %}
+    </form>
+    <form method="GET" action="{{ url_for('comment_edit', comment_id=comment.id) }}">
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary pull-right">Edit</button>
+      </div>
+    </form>
+    {% endif %}
       </td>
      
       
