@@ -52,7 +52,9 @@ from application import views
 
 from application.threads import models
 from application.threads import views
+
 from application.comments import models
+from application.comments import views
 
 from application.customsearch import views
 

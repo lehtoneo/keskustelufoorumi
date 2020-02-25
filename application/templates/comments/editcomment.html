@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Edit comment</h2>
+<div>
+    Old comment: "{{ comment.comment_text }}"
+    <br>
+    <br>
+    <form method="POST" action="">
+
+        <div class="form group">
+          <label >New comment: </label>
+          <ul>
+            {% for error in form.comment.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+          {{ form.comment(class="form-control", rows="3", value="a", placeholder="Insert new comment here")}}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary mb-2">Comment!</button>
+    </form>
+</div>
+{% endblock %}
