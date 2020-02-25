@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
   
 {% block content %}
+<h1>Edit your thread</h1>
+<h2>Here you can edit your thread title or description or add a new category to it</h2>
+<h3>Title</h3>
 <p>Previous title: {{ thread.title }} </p>
 <pr></pr>
 
@@ -22,7 +25,7 @@
     <button type="submit" class="btn btn-warning mb-2">Edit title</button>  
     </div>
   </form>
-
+  <h3>Description</h3>
   <form method="POST" action="{{ url_for('threads_confirm_description_edit', thread_id=thread.id)}}">
     <div class="form-group">
       <p>Previous description: </p>
@@ -40,7 +43,7 @@
       <button type="submit" class="btn btn-warning mb-2">Edit description</button>  
       </div>
     </form>
-
+    <h3>New category</h3>
     <form method="POST" action="{{ url_for('threads_add_new_category', thread_id=thread.id)}}">
       <div class="form-group">
         <label>Add a new category</label>
@@ -65,7 +68,8 @@
     
   <div>
 
-    <br>
+    <h3>Delete</h3>
+    <h4>Warning! This action cannot be undone</h4>
   <form method="POST" action="{{ url_for('threads_delete', thread_id=thread.id) }}">
     
     <button type="submit" class="btn btn-danger">Delete Thread</button>
