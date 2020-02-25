@@ -43,7 +43,7 @@ Kun käyttäjä navigoi keskusteluun, jossa on hänen lähettämiään kommentte
 
 ### Oman keskustelun muokkaaminen ja poistaminen
 
-Avaamalla omat keskustelut (kts. Itse aloittamien keskustelujen etsiminen ja lukeminen) ja painamalla keskustelun oikealla puolella olevaa nappia "Edit this thread!", avautuu sivu, jossa omaa keskustelua voi muokata tai sen voi poistaa. 
+Avaamalla omat keskustelut (kts. Itse aloittamien keskustelujen etsiminen ja lukeminen) ja painamalla keskustelun oikealla puolella olevaa nappia "Edit this thread!", avautuu sivu, jossa omaa keskustelua voi muokata tai sen voi poistaa. "Edit this thread!" napin takaa löytyy myös mahdollisuus lisätä keskustelulle lisää kategorioita.
 
 ### Aktiivisimpien käyttäjien tarkastelu
 
