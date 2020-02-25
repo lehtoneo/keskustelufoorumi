@@ -8,13 +8,13 @@
 
 Mikäli ei halua tehdä itse sovellukseen omia tunnuksia, voit käyttää seuraavia testitunnuksia:
 
-Normaali käyttäjä:
+*Normaali käyttäjä:*
 
 Username: user  
 
 Password: user
 
-Admin:
+*Admin:*
 
 Username: admin
 
