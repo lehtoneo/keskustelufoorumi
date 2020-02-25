@@ -43,16 +43,16 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 - Keskustelun aloittaminen
 - Keskusteluun vastaaminen
 - Keskusteluiden listaaminen
-- Keskustelun etsiminen kategorioittain
-- Keskustelujen listaaminen uusimmasta vanhimaan ja vanhimmasta uusimpaan
+- Keskustelun listaaminen kategorioittain
+- Keskustelujen listaaminen uusimmasta vanhimpaan ja vanhimmasta uusimpaan
 - Kommenttien katselu
 - Oman vastauksen ja keskustelun aloituksen poistaminen
 - Oman keskustelun aiheen muokkaaminen
 - Oman keskustelun kuvauksen muokkaaminen
+- Kategorioiden lisäys itse aloittamalle
 - Omien keskustelun aloituksien näyttäminen omalla sivulla
 - Aktiivisimpien keskustelijoiden listaus
 - Suosituimpien kategorioiden listaus
-
 
 ## TOTEUTUNUT Tietokantakaavio
 
