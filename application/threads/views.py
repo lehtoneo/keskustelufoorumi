@@ -141,7 +141,6 @@ def threads_create():
         db.session().add(thread_category)
         db.session().commit()
         thread2 = Thread.query.get(thread.id)
-        thread2.posted = datetime.now().replace(microsecond=0, second=0)
         db.session().commit()
         return redirect(url_for("threads_index"))
 
@@ -151,7 +150,6 @@ def threads_create():
     db.session().add(thread_category)
     db.session().commit()
     thread2 = Thread.query.get(thread.id)
-    thread2.posted = datetime.now().replace(microsecond=0, second=0)
     db.session().commit()
     return redirect(url_for("threads_index"))
 
