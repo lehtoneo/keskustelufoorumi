@@ -17,7 +17,6 @@ def comment_edit(comment_id):
 @login_required
 def comment_edit_post(comment_id):
     comment = Comment.query.get(comment_id)
-    
     if(current_user.id != comment.user_id):
         return threadviews.threads_index()
     form = CommentForm(request.form)
