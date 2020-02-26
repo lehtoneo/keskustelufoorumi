@@ -222,7 +222,6 @@ def threads_confirm_title_edit(thread_id):
 
     
     thread.title = titleform.title.data
-    thread.modified = datetime.now().replace(microsecond=0)
     db.session().commit()
 
     return threads_open(thread_id)
@@ -241,7 +240,6 @@ def threads_confirm_description_edit(thread_id):
 
     
     thread.description = descform.description.data
-    thread.modified = datetime.now().replace(microsecond=0)
     db.session().commit()
 
     return threads_open(thread_id)

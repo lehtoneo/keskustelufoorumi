@@ -1,12 +1,11 @@
 from application import db
 from sqlalchemy.sql import text
-
+from datetime import datetime
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
-    posted = db.Column(db.DateTime, default=db.func.current_timestamp())
-    modified = db.Column(db.DateTime, default=db.func.current_timestamp())
-    onupdate = db.func.current_timestamp()
+    posted = db.Column(db.DateTime(timezone=True), default=datetime.now)
+    modified = db.Column(db.DateTime(timezone=True), onupdate=datetime.now)
 
     comment_text = db.Column(db.String, nullable=False)
 
