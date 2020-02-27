@@ -23,9 +23,12 @@ Password: admin
 Sovellukseen voi rekisteröityä painamalla nappia Sign up yläpalkista ja valitsemalla itselleen käyttäjänimen ja salasanan. Käyttäjänimen pituuden tulee olla välillä 6-25 ja salasanan tulee olla välillä 8-30.
 
 
-### Kaikkien keskustelujen listaaminen
+### Keskustelujen listaaminen
 
+#### Kaikki
 Painamalla yläpalkista nappia threads, avautuu lista, jossa on kaikki foorumin keskustelut listattuna.
+#### Kategorioittain ja ajan mukaan
+Menemällä threads sivulle, voi etsiä kategorioittain keskusteluita. Painamalla nappia "custom search" voi etsiä ajan ja kategorian mukaan.
 
 ### Keskustelun lisääminen
 
