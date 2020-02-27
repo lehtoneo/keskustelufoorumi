@@ -132,8 +132,6 @@ def threads_create():
     thread_category = Thread_Category(thread.id, int(categoryform.categories.data))
     db.session().add(thread_category)
     db.session().commit()
-    thread2 = Thread.query.get(thread.id)
-    db.session().commit()
     return redirect(url_for("threads_index"))
 
 @app.route("/threads/mythreads")

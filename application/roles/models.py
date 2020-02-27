@@ -12,7 +12,6 @@ class Role(db.Model):
 class User_Role(db.Model):
     __tablename__ = "User_Role"
 
-    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     role_id = db.Column(db.Integer, db.ForeignKey('role.id'), nullable=False)
     user = relationship("User", back_populates="roles")
