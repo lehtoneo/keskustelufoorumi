@@ -11,11 +11,11 @@ Huom. Joissain kyselyissä on hipsut "" sen takia, että ne toimisivat myös pil
 SQL-kysely, jolla lisätään keskustelu thread tauluun:
 
 ```SQL 
-INSERT INTO Thread (id, title, description, posted, modified, user_id) 
-VALUES (?, 'title_tähän', 'kuvaus_tähän', ?, ?, kirjautuneen_käyttäjän_id);
+INSERT INTO Thread (id, title, description, posted, user_id) 
+VALUES (?, 'title_tähän', 'kuvaus_tähän', ?, kirjautuneen_käyttäjän_id);
 ```
 
-Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään.
+Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n ja posted kentän kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään.
 
 SQL-kysely, jolla lisätään kategoria keskustelulle:
 
@@ -30,11 +30,11 @@ VALUES (?, lisätyn_threadin_id, categorian_id);
 
 
 ```SQL
-INSERT INTO Comment (id, text, posted, modified, thread_id, user_id) 
-VALUES (?, 'kommentin_teksti', ?, ?, sen_keskustelun_id_johon_kommentoidaan, kirjautuneen_käyttäjän_id);
+INSERT INTO Comment (id, text, posted, thread_id, user_id) 
+VALUES (?, 'kommentin_teksti', ?, sen_keskustelun_id_johon_kommentoidaan, kirjautuneen_käyttäjän_id);
 ``` 
 
-Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n, posted ja modified kenttien kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään
+Kysymysmerkkien kohdalle SQLAlchemy laittaa sopivat arvot: id:n kohdalle uniikin id:n ja posted kentän kohdalle SQLAlchemy laittaa ajan, jolloin kysely tehdään
 
 
 
