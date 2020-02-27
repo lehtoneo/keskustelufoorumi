@@ -44,7 +44,7 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 - Keskusteluun vastaaminen
 - Keskusteluiden listaaminen
 - Keskusteluiden listaaminen kategorioittain
-- Keskusteluidenen listaaminen uusimmasta vanhimpaan ja vanhimmasta uusimpaan
+- Keskusteluiden listaaminen uusimmasta vanhimpaan ja vanhimmasta uusimpaan
 - Kommenttien katselu
 - Oman kommentin muokkaaminen
 - Oman vastauksen ja keskustelun aloituksen poistaminen
