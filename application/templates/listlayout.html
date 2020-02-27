@@ -23,7 +23,11 @@
     </td>
   <td>
     {% for category in thread.categories %}
-    {{ category.category.name }}
+      {% if loop.last %}
+          {{ category.category.name }}
+        {% else %}
+          {{ category.category.name }},
+      {% endif %}
     {% endfor %}
   </td>
 
