@@ -4,12 +4,17 @@
 ### Kirjautuminen
 
 Sovellukseen voi kirjautua painamalla login nappulaa yläpalkista ja syöttämällä omat tunnukset tai testitunnukset:  
+**Normaali käyttäjä:**
 
-Username: username
+Username: user
 
+Password: user
 
-Password: password
+**Admin:**
 
+Username: user
+
+Password: user
 
 
 ### Rekisteröityminen
