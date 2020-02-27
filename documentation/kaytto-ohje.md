@@ -37,6 +37,10 @@ Painamalla keskustelun aihetta, avautuu sivu, jossa voi katsella keskustelua tar
 
 Kun kirjautunut käyttäjä avaa keskustelun, voi hän kommentoida keskusteluun keskustelun alalaidassa olevan kentän avulla. Syöttämällä tekstiä kenttään ja painamalla "Comment!", lähetetään kommentti keskusteluun.
 
+### Kommentin muokkaaminen
+
+Käyttäjä pystyy muokkaamaan omaa kommenttiaan painamalla kommentin alapuolella olevaa "Edit"-nappia.
+
 ### Kommentin poistaminen
 
 Kun käyttäjä navigoi keskusteluun, jossa on hänen lähettämiään kommentteja, omien kommenttejen alle ilmestyy "DELETE" nappi. Painamalla nappia kyseinen kommentti poistuu. 
