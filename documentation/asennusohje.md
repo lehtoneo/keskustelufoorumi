@@ -62,6 +62,7 @@ Seurataksesi ohjeita tarvitset:
 - Herokun. Lataamiseen voit seurata ohjeita [täältä](https://devcenter.heroku.com/articles/heroku-cli). 
 - Herokun työvälineet komento riville: https://devcenter.heroku.com/articles/heroku-cli
 - Käyttäjän herokuun
+- [PostgreSQL](https://www.postgresql.org/)-tietokannanhallintajärjestelmän. 
 - [gitin](https://git-scm.com/downloads/)
 
 ### Step 1
@@ -87,4 +88,10 @@ Lähetetään projekti herokuun:
 ```git push heroku master```
 
 Projekti löytyy nyt osoitteesta  https://oman_projektin_nimi.herokuapp.com/
+
+### Step 4
+
+Luodaan projektille tietokanta:
+
+```heroku addons:add heroku-postgresql:hobby-dev```
 
