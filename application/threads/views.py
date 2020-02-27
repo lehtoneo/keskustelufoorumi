@@ -5,9 +5,7 @@ from flask_login import current_user
 from application.comments.models import Comment
 from application.comments.forms import CommentForm
 from application.categories.models import Category
-from application.auth.models import User
 from application.threads.models import Thread, Thread_Category
-from datetime import datetime
 from application.categories.forms import CategoryForm
 from application.threads.forms import NewThreadForm
 from application.threads.forms import EditThreadTitleForm, EditThreadDescriptionForm
@@ -43,20 +41,6 @@ def admin_thread_delete(thread_id):
     db.session().commit()
 
     return threads_index()
-
-@app.route("/threads/admin/delete/comment/<comment_id>", methods=["POST"])
-@login_required(role="ADMIN")
-def admin_comment_delete(comment_id):
-
-    comment = Comment.query.get(comment_id)
-    threadid = comment.thread_id
-
-    Comment.query.filter_by(id=comment_id).delete()
-    db.session().commit()
-
-
-    return threads_open(threadid)
-
 
 
 @app.route("/threads/category", methods=["POST"])
@@ -254,34 +238,3 @@ def threads_delete(thread_id):
     Thread.query.filter_by(id=thread_id).delete()
     db.session().commit()
     return threads_openmythreads()
-
-@app.route("/threads/deletecomment/<comment_id>", methods=["POST"])
-@login_required
-def comment_delete(comment_id):
-    comment = Comment.query.get(comment_id)
-    threadid = comment.thread_id
-    if(comment.user_id != current_user.id):
-        return threads_open(threadid)
-    Comment.query.filter_by(id=comment_id).delete()
-    db.session().commit()
-
-    return threads_open(threadid)
-
-@app.route("/threads/read/<thread_id>", methods=["POST"])
-@login_required
-def threads_comment(thread_id):
-    form = CommentForm(request.form)
-    
-    if not form.validate():
-        thread = Thread.query.get(thread_id)
-        comments = thread.comments
-        
-        return render_template("threads/showthread.html", form = form, comments = comments, thread = thread, user = thread.user)
-
-    comment = Comment(form.comment.data)
-    comment.thread_id = thread_id
-    comment.user_id = current_user.id
-    db.session().add(comment)
-    db.session().commit()
-
-    return threads_open(thread_id)

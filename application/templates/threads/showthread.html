@@ -89,7 +89,7 @@
 </div>
 <br>
 {% if current_user.is_authenticated %}
-  <form method="POST" action="{{ url_for('threads_comment', thread_id=thread.id) }}">
+  <form method="POST" action="{{ url_for('comment_post', thread_id=thread.id) }}">
 
       <div class="form group">
         <label >{{ form.comment.label }}</label>
