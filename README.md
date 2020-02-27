@@ -43,8 +43,8 @@ Sovellus on keskustelufoorumi, johon tulee kirjautua nähdäkseen keskustelut. K
 - Keskustelun aloittaminen
 - Keskusteluun vastaaminen
 - Keskusteluiden listaaminen
-- Keskustelun listaaminen kategorioittain
-- Keskustelujen listaaminen uusimmasta vanhimpaan ja vanhimmasta uusimpaan
+- Keskusteluiden listaaminen kategorioittain
+- Keskusteluidenen listaaminen uusimmasta vanhimpaan ja vanhimmasta uusimpaan
 - Kommenttien katselu
 - Oman kommentin muokkaaminen
 - Oman vastauksen ja keskustelun aloituksen poistaminen
