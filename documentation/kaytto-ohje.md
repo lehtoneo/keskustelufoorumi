@@ -5,11 +5,17 @@
 
 Sovellukseen voi kirjautua painamalla login nappulaa yläpalkista ja syöttämällä omat tunnukset tai testitunnukset:  
 
-Username: username
+**Normaali käyttäjä:**
 
+Username: user
 
-Password: password
+Password: user
 
+**Admin:**
+
+Username: admin
+
+Password: admin
 
 
 ### Rekisteröityminen
@@ -36,6 +42,10 @@ Painamalla keskustelun aihetta, avautuu sivu, jossa voi katsella keskustelua tar
 ### Keskustelun kommentointi
 
 Kun kirjautunut käyttäjä avaa keskustelun, voi hän kommentoida keskusteluun keskustelun alalaidassa olevan kentän avulla. Syöttämällä tekstiä kenttään ja painamalla "Comment!", lähetetään kommentti keskusteluun.
+
+### Kommentin muokkaaminen
+
+Käyttäjä pystyy muokkaamaan omaa kommenttiaan painamalla kommentin alapuolella olevaa "Edit"-nappia.
 
 ### Kommentin poistaminen
 

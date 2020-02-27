@@ -70,7 +70,12 @@ DELETE FROM Thread WHERE id = poistettavan_keskustelun_id;
 DELETE FROM Comment WHERE id = poistettavan_kommentin_id;
 ```
 
+#### Pystyy muokkaamaan omaa kommenttia
 
+```SQL
+Update Comment SET comment_text ='uusi kommentti', modified = 'tämän_hetkinen_aika' 
+WHERE id = muokattavan_kommentin_id;
+```
 
 #### Pystyy etsimään keskusteluita
 
