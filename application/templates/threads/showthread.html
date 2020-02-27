@@ -35,7 +35,19 @@
   
   <table>
     <tr>
-      <td> <strong> {{ comment.user.username }} &#8226; {{ comment.posted.strftime('%d.%m.%Y at %H.%M') }} </strong> </td>
+      {% if comment.user.id == current_user.id %}
+      <td> <strong>  Me  &#8226; {{ comment.posted.strftime('%d.%m.%Y at %H.%M') }} </strong>
+        {% if comment.modified != None %} 
+        (modified {{ comment.modified.strftime('%d.%m.%Y at %H.%M') }})
+        {% endif %}
+       </td>
+      {% else %}
+      <td> <strong> {{ comment.user.username }} &#8226; {{ comment.posted.strftime('%d.%m.%Y at %H.%M') }} </strong>
+        {% if comment.modified != None %} 
+        (modified {{ comment.modified.strftime('%d.%m.%Y at %H.%M') }})
+        {% endif %}
+           </td>
+      {% endif %}
       <br>
       
     </tr>
