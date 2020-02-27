@@ -5,7 +5,8 @@
 Ohjeet olettavat, että konella, johon asennat ohjelman ainakin seuraavat ohjelmat: 
 
 
-- [python](https://www.python.org/download) (sekä pythonin kirjastot pip ja venv)
+- [python](https://www.python.org/download) (sekä pythonin kirjasto venv)
+- [pip](https://packaging.python.org/key_projects/#pip)
 
 
 ## Asennus paikallisesti
